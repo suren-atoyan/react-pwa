@@ -1,0 +1,45 @@
+#ie_container {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+#ie_box {
+  position: absolute;
+  margin: auto;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  width: 500px;
+  height: 300px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+#ie_language_select {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 5px;
+  background: transparent;
+  outline: none;
+  width: 50px;
+  height: 25px;
+}
+
+#ie_box h2 {
+  color: red;
+  margin-top: 0; 
+}
+
+#ie_footer {
+  position: absolute;
+  bottom: 0;
+  width: inherit;
+  height: 40px;
+  text-align: center;
+  font-size: 15px;
+}
