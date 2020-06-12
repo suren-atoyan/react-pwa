@@ -62,11 +62,18 @@
         ie_styles.rel = 'stylesheet';
         ie_styles.href = 'ie/styles.css';
 
-        document.addEventListener('DOMContentLoaded', function() {
+        function injectScripts() {
           document.body.innerHTML = '';
           document.body.appendChild(ie_styles);
           document.body.appendChild(ie_script);
-        });
+        }
+
+        if (document.addEventListener) {
+          document.addEventListener('DOMContentLoaded', injectScripts);
+        } else { // before IE 9
+          document.attachEvent('DOMContentLoaded', injectScripts);
+        }
+
       }
     </script>
   </head>
