@@ -3,7 +3,8 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import ResetIcon from '@material-ui/icons/Refresh';
+
+import { FaRedo as ResetIcon } from 'react-icons/fa';
 
 import { resetApp } from 'utils';
 import { messages, email } from 'config';
