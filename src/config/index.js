@@ -1,5 +1,7 @@
+/* set your data here */
 const email = 'super-email-of-the-auther@gmail.com';
 const domain = 'my-domain.com'
+/* ***************** */
 
 const messages = {
   app: {
@@ -22,6 +24,40 @@ const copyright = {
   link: domain,
 };
 
+const themes = {
+  light: {
+    palette: {
+      type: 'light',
+      background: {
+        default: '#fafafa',
+        paper: '#fff',
+      },
+      primary: {
+        light: '#7986cb',
+        main: '#3f51b5',
+        dark: '#303f9f',
+        contrastText: '#fff',
+      },
+    },
+  },
+
+  dark: {
+    palette: {
+      type: 'dark',
+      background: {
+        default: '#111',
+        paper: '#171717',
+      },
+      primary: {
+        light: '#7986cb',
+        main: '#333',
+        dark: '#303f9f',
+        contrastText: '#fff',
+      },
+    },
+  },
+};
+
 const cancelationMessage = 'operation is manually canceled';
 
 const dateFormat = 'MMMM DD, YYYY';
@@ -38,4 +74,5 @@ export {
   domain,
   appTitle,
   themePair,
+  themes,
 };
