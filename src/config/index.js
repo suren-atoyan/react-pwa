@@ -3,6 +3,8 @@ const email = 'super-email-of-the-auther@gmail.com';
 const domain = 'my-domain.com'
 /* ***************** */
 
+const repository = 'https://github.com/suren-atoyan/react-pwa';
+
 const messages = {
   app: {
     crash: {
@@ -71,7 +73,9 @@ export {
   cancelationMessage,
   dateFormat,
   copyright,
+  email,
   domain,
+  repository,
   appTitle,
   themePair,
   themes,
