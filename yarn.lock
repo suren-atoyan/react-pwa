@@ -1005,7 +1005,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.4", "@babel/runtime@^7.8.3":
+"@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.4", "@babel/runtime@^7.8.3", "@babel/runtime@^7.9.6":
   version "7.10.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
   integrity sha512-6sF3uQw2ivImfVIl62RZ7MXhO2tap69WeWK57vAaimT6AZbE4FbqjdEJIN1UqoD6wI6B+1n9UiagafH1sxjOtg==
@@ -8814,6 +8814,13 @@ react-dom@^16.13.1:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.19.1"
+
+react-error-boundary@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/react-error-boundary/-/react-error-boundary-2.2.2.tgz#ed2c2f0770edb3223d71ffc18ac29546ebae903b"
+  integrity sha512-P6gKUS1eTTYIWJKyjhIH5MZzgXbI5lrAL0BkIMpHZaaen+ZPaEfZrdnnXILUqDFzI+WwIPDesyzQvhRbxuvjcg==
+  dependencies:
+    "@babel/runtime" "^7.9.6"
 
 react-error-overlay@^6.0.7:
   version "6.0.7"
