@@ -21,7 +21,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "start-prod": "yarn build && yarn serve",
+    "serve": "node hoster/server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -39,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "express": "^4.17.1"
   }
 }
