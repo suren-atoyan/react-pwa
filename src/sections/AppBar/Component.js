@@ -11,7 +11,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import {
   FaBrush as BrushIcon,
-  FaSync as SyncIcon,
+  FaRedo as RedoIcon,
   FaBars as MenuIcon,
   FaGithub as GithubIcon,
 } from 'react-icons/fa';
@@ -48,7 +48,7 @@ function AppBar_({ isMenuOpen, onMenuOpen }) {
       position="absolute"
       className={classes.appBar}
       color="transparent"
-      elevation={0}
+      elevation={1}
     >
       <Toolbar className={classes.toolbar}>
         <Box display="flex" className={classes.main}>
@@ -75,7 +75,7 @@ function AppBar_({ isMenuOpen, onMenuOpen }) {
               <>
                 <Tooltip title="The application has newer version; press to update" arrow>
                   <IconButton aria-label="update the application" color="secondary" onClick={handleAppUpdate}>
-                    <SyncIcon />
+                    <RedoIcon />
                   </IconButton>
                 </Tooltip>
                 <Divider />

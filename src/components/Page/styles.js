@@ -1,11 +1,13 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+import { isMobile } from 'utils';
+
 const useStyles = makeStyles(theme => ({
   root: {
     height: '100%',
     overflow: 'hidden',
-    'padding-left': theme.spacing(3),
-    'padding-right': theme.spacing(3),
+    'padding-left': theme.spacing(isMobile ? 1.5 : 3),
+    'padding-right': theme.spacing(isMobile ? 1.5 : 3),
   },
 }));
 

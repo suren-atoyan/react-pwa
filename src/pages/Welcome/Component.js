@@ -2,13 +2,18 @@ import React from 'react';
 
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
+import { FaReact as ReactIcon } from 'react-icons/fa';
 
 import Meta from 'components/Meta';
 
 import useStyles from './styles';
 
 function Welcome() {
-  const classes = useStyles();
+  const matchSmallScreen = useMediaQuery('(max-width: 360px)');
+  const classes = useStyles({ isSmallScreen: matchSmallScreen });
 
   return (
     <>
@@ -17,7 +22,10 @@ function Welcome() {
         description="Welcome Page"
       />
       <Container maxWidth="sm" className={classes.root}>
-        <Typography variant="h3">React PWA</Typography>
+        <Box className={classes.wrapper}>
+          <Box className={classes.iconBox}><ReactIcon className={classes.icon} /></Box>
+          <Typography variant={matchSmallScreen ? 'h4' : 'h3'}>React PWA</Typography>
+        </Box>
       </Container>
     </>
   );
