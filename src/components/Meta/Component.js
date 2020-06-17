@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Helmet } from 'react-helmet';
-import { appTitle } from 'config';
+import { title as appTitle } from 'config';
 
 function Meta({ description, lang, meta, title, image }) {
   const _title = `${appTitle} ${title ? '| ' + title : ''}`;

@@ -19,8 +19,7 @@ import {
 import Link from 'components/Link';
 
 import { useStore } from 'store';
-import { isMobile } from 'utils';
-import { appTitle, repository } from 'config';
+import { title, repository } from 'config';
 
 import useStyles from './styles';
 
@@ -59,15 +58,11 @@ function AppBar_({ isMenuOpen, onMenuOpen }) {
           >
             <MenuIcon />
           </IconButton>
-          {
-            !isMobile && (
-              <Link to="/">
-                <Button aria-label="go to home" className={classes.title}>
-                  {appTitle}
-                </Button>
-              </Link>
-            )
-          }
+          <Link to="/">
+            <Button aria-label="go to home" className={classes.title}>
+              {title}
+            </Button>
+          </Link>
         </Box>
         <Box display="flex">
           {

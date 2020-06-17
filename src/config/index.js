@@ -64,7 +64,7 @@ const cancelationMessage = 'operation is manually canceled';
 
 const dateFormat = 'MMMM DD, YYYY';
 
-const appTitle = 'React PWA';
+const title = 'React PWA';
 
 const themePair = ['dark', 'light'];
 
@@ -76,7 +76,7 @@ export {
   email,
   domain,
   repository,
-  appTitle,
+  title,
   themePair,
   themes,
 };
