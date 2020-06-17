@@ -22,6 +22,9 @@ const useStyles = makeStyles(theme => ({
     width: 50,
     'margin-right': 10,
   },
+  title: {
+    'font-weight': 100,
+  },
 }));
 
 export default useStyles;

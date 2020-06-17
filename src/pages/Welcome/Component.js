@@ -12,7 +12,7 @@ import Meta from 'components/Meta';
 import useStyles from './styles';
 
 function Welcome() {
-  const matchSmallScreen = useMediaQuery('(max-width: 360px)');
+  const matchSmallScreen = useMediaQuery('(max-width: 600px)');
   const classes = useStyles({ isSmallScreen: matchSmallScreen });
 
   return (
@@ -24,7 +24,12 @@ function Welcome() {
       <Container maxWidth="sm" className={classes.root}>
         <Box className={classes.wrapper}>
           <Box className={classes.iconBox}><ReactIcon className={classes.icon} /></Box>
-          <Typography variant={matchSmallScreen ? 'h4' : 'h3'}>React PWA</Typography>
+          <Typography
+            variant={matchSmallScreen ? 'h4' : 'h3'}
+            className={classes.title}
+          >
+            React PWA
+          </Typography>
         </Box>
       </Container>
     </>
