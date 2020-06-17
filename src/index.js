@@ -4,7 +4,7 @@ import store from 'store';
 
 import './index.css';
 
-if (!document.ie) { // check for ie snippet
+if (!document.ie) { // check for ie
   Promise.all([
     import('react'),
     import('react-dom'),
