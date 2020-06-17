@@ -9,13 +9,15 @@ import useStyles from './styles';
 function Loading({ size, withoutBackground }) {
   const classes = useStyles();
 
-  return <Paper
-    elevation={0}
-    square={true}
-    className={clsx(classes.preloader, withoutBackground && classes.open)}
-  >
-    <CircularProgress thickness={1.5} color="inherit" size={size} />
-  </Paper>;
+  return (
+    <Paper
+      elevation={0}
+      square={true}
+      className={clsx(classes.preloader, withoutBackground && classes.open)}
+    >
+      <CircularProgress thickness={1.5} color="inherit" size={size} />
+    </Paper>
+  );
 }
 
 Loading.defaultProps = {
