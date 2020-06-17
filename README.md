@@ -43,15 +43,15 @@ In the production application will be used service worker and workbox provided b
 
 #### SEO
 
-For SEO is used `react-helmet`. The [Meta component](https://github.com/suren-atoyan/react-pwa/tree/master/src/components/Meta) will help you to update meta tags easily. To see the simple usage of that check [this](https://github.com/suren-atoyan/react-pwa/blob/master/src/pages/Welcome/Component.js#L20).
+For SEO there is used `react-helmet`. The [Meta component](https://github.com/suren-atoyan/react-pwa/tree/master/src/components/Meta) will help you to update meta tags easily. To see the simple usage of it check [this](https://github.com/suren-atoyan/react-pwa/blob/master/src/pages/Welcome/Component.js#L20).
 
 #### No IE
 
-A special script works in the index.html file for checking if the browser of the user is any version of IE or not. And if it is, the execution of the application is being stopped and a special message will be shown. You may not think about the compatibility of the app and IE, plus you may not think about how-much-broken will be your app in different versions of IE. So, all users of IE will see this message when they visit your app.
+A special script works in the index.html file for checking if the browser of the user is any version of IE or not. And if it is, the execution of the application is being stopped and a special message will be shown. You may not think about the compatibility of the app and IE, plus you may not think about how broken your app will be in different versions of IE. So, all users of IE will see this message when they visit your app.
 
 <img src="./public/images/readme/ie.message.png" width="300" title="IE message">
 
-You can see the implementation of this [here](https://github.com/suren-atoyan/react-pwa/tree/master/public/ie). It supports multiple languages. You can add your language with translation [here](https://github.com/suren-atoyan/react-pwa/blob/master/public/ie/init.js#L15).
+You can see the implementation of this [here](https://github.com/suren-atoyan/react-pwa/tree/master/public/ie). It supports multiple languages. You can add your language with it's translation [here](https://github.com/suren-atoyan/react-pwa/blob/master/public/ie/init.js#L15).
 
 #### Structure
 
@@ -70,5 +70,5 @@ You can see the implementation of this [here](https://github.com/suren-atoyan/re
 ## Demo
 
 <div style="display: flex">
- <img src="./public/images/demo-dark.png" width="300" title="Dark demo"> <img src="./public/images/demo-light.png" width="300" title="Light demo">
+ <img src="./public/images/readme/demo-dark.png" width="300" title="Dark demo"> <img src="./public/images/readme/demo-light.png" width="300" title="Light demo">
 </div>
