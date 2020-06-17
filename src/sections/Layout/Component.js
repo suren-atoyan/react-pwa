@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Box from '@material-ui/core/Box';
+
 import Content from 'sections/Content';
 import Copyright from 'sections/Copyright';
 import Navigation from 'sections/Navigation';
@@ -12,13 +14,13 @@ function Layout() {
   return (
     <>
       <Navigation />
-      <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        <div className={classes.mainSection}>
+      <Box component="main" className={classes.content}>
+        <Box className={classes.appBarSpacer} />
+        <Box className={classes.mainSection}>
           <Content />
           <Copyright />
-        </div>
-      </main>
+        </Box>
+      </Box>
     </>
   );
 }
