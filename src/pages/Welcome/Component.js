@@ -19,7 +19,7 @@ function Welcome() {
     <>
       <Meta
         title="Welcome"
-        description="Welcome Page"
+        description="Welcome to React PWA"
       />
       <Container maxWidth="sm" className={classes.root}>
         <Box className={classes.wrapper}>
