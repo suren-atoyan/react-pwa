@@ -72,3 +72,8 @@ You can see the implementation of this [here](https://github.com/suren-atoyan/re
 <div>
  <img src="./public/images/readme/demo-dark.png" width="300" title="Dark demo"> <img src="./public/images/readme/demo-light.png" width="300" title="Light demo">
 </div>
+
+## License
+
+[MIT](./LICENSE)
+
