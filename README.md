@@ -92,21 +92,21 @@ The last one will build your project (`yarn build`) and start express server (`y
 
 ## Structure
 
-<img src="./public/images/readme/structure.png" width="300" title="index.js file">
+<img src="./public/images/readme/structure.png" width="200" title="index.js file">
 
 Initial files:
 
 `index.js`
 
-<img src="./public/images/readme/index.js.png" width="300" title="index.js file">
+<img src="./public/images/readme/index.js.png" width="500" title="index.js file">
 
 `App.js`
 
-<img src="./public/images/readme/App.js.png" width="300" title="App.js file">
+<img src="./public/images/readme/App.js.png" width="500" title="App.js file">
 
 `Layout`
 
-<img src="./public/images/readme/layout.png" width="300" title="Layout component">
+<img src="./public/images/readme/layout.png" width="500" title="Layout component">
 
 ## Demo
 
