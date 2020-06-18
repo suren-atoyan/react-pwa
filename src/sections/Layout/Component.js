@@ -14,9 +14,9 @@ function Layout() {
   return (
     <>
       <Navigation />
-      <Box component="main" className={classes.content}>
-        <Box className={classes.appBarSpacer} />
-        <Box className={classes.mainSection}>
+      <Box component="main" className={classes.wrapper}>
+        <Box className={classes.spacer} />
+        <Box className={classes.content}>
           <Content />
           <Copyright />
         </Box>

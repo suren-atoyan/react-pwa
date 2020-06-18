@@ -1,14 +1,14 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
-  appBarSpacer: theme.mixins.toolbar,
-  content: {
+  spacer: theme.mixins.toolbar,
+  wrapper: {
     flexGrow: 1,
     height: '100vh',
     overflow: 'hidden',
     position: 'relative',
   },
-  mainSection: {
+  content: {
     display: 'flex',
     'flex-direction': 'column',
     'justify-content': 'space-between',
