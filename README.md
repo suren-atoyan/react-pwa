@@ -92,6 +92,8 @@ The last one will build your project (`yarn build`) and start express server (`y
 
 ## Structure
 
+<img src="./public/images/readme/structure.png" width="300" title="index.js file">
+
 Initial files:
 
 `index.js`
