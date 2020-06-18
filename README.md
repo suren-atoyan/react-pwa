@@ -13,6 +13,17 @@ By the same philosophy, there are other routines above the basic configuration, 
 
 ## Features
 
+* [CRA](#cra)
+* [React Router](#react-router)
+* [Material UI](#material-ui)
+* [Theme](#theme)
+* [Store](#store)
+* [Error Handling](#error-handling)
+* [Service Worker](#service-worker)
+* [SEO](#seo)
+* [No IE](#no-ie)
+* [Hoster](#hoster)
+
 #### CRA
 
 It's based on CRA, which is (of course) not ejected. It means you have full access to CRA features.
@@ -21,7 +32,7 @@ It's based on CRA, which is (of course) not ejected. It means you have full acce
 
 The latest version of `react-router-dom` is integrated. Routes are defined in [/src/routes/](https://github.com/suren-atoyan/react-pwa/blob/master/src/routes/index.js). In the minimal version of the template, there are demonstrated 5 routes that render 5 pages. Pages are loaded asynchronously by [AsyncComponentLoader](https://github.com/suren-atoyan/react-pwa/blob/master/src/components/AsyncComponentLoader/Component.js) component (which is optional).
 
-#### Material-UI
+#### Material UI
 
 The latest version of `Material-UI` is integrated. The whole layout of the application is made by `Material-UI` components. In the demonstrated components/sections you can notice how MUI components can be customized. The styling system is also inherited from MUI.
 
@@ -29,13 +40,13 @@ The latest version of `Material-UI` is integrated. The whole layout of the appli
 
 The [theme system](https://github.com/suren-atoyan/react-pwa/blob/master/src/theme/ThemeProvider.js) is based on MUI theme. There are two themes' styles that are defined in the [config file](https://github.com/suren-atoyan/react-pwa/blob/master/src/config/index.js). The theme provider, which is based on MUI is integrated with app and store.
 
-#### Error Handling
-
-[Error Handling](https://github.com/suren-atoyan/react-pwa/tree/master/src/errorHandling) is based on `react-error-boundary` package. There is also [implemented](https://github.com/suren-atoyan/react-pwa/tree/master/src/errorHandling/Fallbacks) a general fallback for the whole app.
-
 #### Store
 
 For store management here is used `overmind`. It's a simple store management tool. See the [implementation and integration](https://github.com/suren-atoyan/react-pwa/tree/master/src/store) of it in this project.
+
+#### Error Handling
+
+[Error Handling](https://github.com/suren-atoyan/react-pwa/tree/master/src/errorHandling) is based on `react-error-boundary` package. There is also [implemented](https://github.com/suren-atoyan/react-pwa/tree/master/src/errorHandling/Fallbacks) a general fallback for the whole app.
 
 #### Service Worker
 
@@ -53,7 +64,35 @@ A special script works in the index.html file for checking if the browser of the
 
 You can see the implementation of this [here](https://github.com/suren-atoyan/react-pwa/tree/master/public/ie). It supports multiple languages. You can add your language with it's translation [here](https://github.com/suren-atoyan/react-pwa/blob/master/public/ie/init.js#L15).
 
-#### Structure
+#### Hoster
+
+There is a simple express server `/hoster/server`, which plays role of static server. The script `start-prop` (`yarn start-prod`), will build the project and start express server. More read in [Usage](#usage) section.
+
+## Usage
+
+You can use this template just by pressing `Use this temaplte`.
+
+<img src="./public/images/readme/use-template.png" width="300" title="Use this temaplte">
+
+Or you can fork it.
+
+In order to run it in development, run:
+
+```bash
+yarn start
+```
+
+In order to run it in production, run:
+
+```bash
+yarn start-prod
+```
+
+The last one will build your project (`yarn build`) and start express server (`yarn serve`) so as to serve static files.
+
+## Structure
+
+Initial files:
 
 `index.js`
 
