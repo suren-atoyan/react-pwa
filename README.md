@@ -1,3 +1,5 @@
+<img src="./public/images/cover.png" width="600" title="Base App">
+
 # React-PWA
 
 A minimal React PWA application as a Github template.
@@ -42,7 +44,7 @@ The [theme system](https://github.com/suren-atoyan/react-pwa/blob/master/src/the
 
 #### Store
 
-For store management here is used `overmind`. It's a simple store management tool. See the [implementation and integration](https://github.com/suren-atoyan/react-pwa/tree/master/src/store) of it in this project.
+For store management is used `overmind`. It's a simple store management tool. See the [implementation and integration](https://github.com/suren-atoyan/react-pwa/tree/master/src/store) of it in this project.
 
 #### Error Handling
 
@@ -52,13 +54,15 @@ For store management here is used `overmind`. It's a simple store management too
 
 In the production application will be used service worker and workbox provided by CRA, plus we "listen" to changes, and in case of new build, the user will get a notification about the new version of the application (app is updatable).
 
+<img src="./public/images/readme/sw.update.png" width="300" title="SW update">
+
 #### SEO
 
 For SEO there is used `react-helmet`. The [Meta component](https://github.com/suren-atoyan/react-pwa/tree/master/src/components/Meta) will help you to update meta tags easily. To see the simple usage of it check [this](https://github.com/suren-atoyan/react-pwa/blob/master/src/pages/Welcome/Component.js#L20).
 
 #### No IE
 
-A special script works in the index.html file for checking if the browser of the user is any version of IE or not. And if it is, the execution of the application is being stopped and a special message will be shown. You may not think about the compatibility of the app and IE, plus you may not think about how broken your app will be in different versions of IE. So, all users of IE will see this message when they visit your app.
+A special script works in the index.html file for checking if the browser of the user is IE or not. And if it is, the execution of the application is being stopped and a special message will be shown. You may not think about the compatibility of the app and IE, plus you may not think about how broken your app will be in different versions of IE. So, all users of IE will see this message when they visit your app.
 
 <img src="./public/images/readme/ie.message.png" width="300" title="IE message">
 
@@ -74,7 +78,7 @@ You can use this template just by pressing `Use this temaplte`.
 
 <img src="./public/images/readme/use-template.png" width="300" title="Use this temaplte">
 
-Or you can fork it.
+Or you can fork/clone it.
 
 In order to run it in development, run:
 
@@ -116,10 +120,10 @@ Initial files:
 
 ## Audit
 
-NOTE: The rest of performance is depend on the demo server.
+NOTE: The performance is not 100 because of demo server.
 Check the results in the [live demo](https://react-pwa.surenatoyan.com/)
 
-<img src="./public/images/readme/audit.png" width="500" title="index.js file">
+<img src="./public/images/readme/audit.png" width="500" title="audit results">
 
 ## TODOs
 
