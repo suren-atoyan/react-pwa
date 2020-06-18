@@ -80,16 +80,22 @@ You can use this template just by pressing `Use this temaplte`.
 
 Or you can fork/clone it.
 
+Install dependencies:
+
+```bash
+yarn # or npm install
+```
+
 In order to run it in development, run:
 
 ```bash
-yarn start
+yarn start # or npm run start
 ```
 
 In order to run it in production, run:
 
 ```bash
-yarn start-prod
+yarn start-prod # or npm run start-prod
 ```
 
 The last one will build your project (`yarn build`) and start express server (`yarn serve`) so as to serve static files.
