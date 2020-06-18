@@ -108,11 +108,22 @@ Initial files:
 
 <img src="./public/images/readme/layout.png" width="500" title="Layout component">
 
-## Demo
+## [Live Demo](https://react-pwa.surenatoyan.com/)
 
 <div>
  <img src="./public/images/readme/demo-dark.png" width="300" title="Dark demo"> <img src="./public/images/readme/demo-light.png" width="300" title="Light demo">
 </div>
+
+## Audit
+
+NOTE: The rest of performance is depend on the demo server.
+Check the results in the [live demo](https://react-pwa.surenatoyan.com/)
+
+<img src="./public/images/readme/audit.png" width="500" title="index.js file">
+
+## TODOs
+
+- [ ] Full test coverage
 
 ## License
 
