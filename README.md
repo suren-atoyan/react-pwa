@@ -6,7 +6,7 @@ A minimal React PWA application as a Github template.
 
 ## Synopsis
 
-It's a combination of essential (and minimal) libraries/components/utils and their integrations upon CRA, which developers usually need during making React application.
+It's a combination of essential (and minimal) libraries/components/utils and their integrations upon CRA, which developers usually need during the process of making React application.
 
 ## Motivation
 We love CRA. And we think it's the right way to build a React application for most of the projects. We have been using CRA in lots of projects, and we are sure that there are lots of routines that developers don't need to care about: like webpack config.
@@ -44,7 +44,7 @@ The [theme system](https://github.com/suren-atoyan/react-pwa/blob/master/src/the
 
 #### Store
 
-For store management is used `overmind`. It's a simple store management tool. See the [implementation and integration](https://github.com/suren-atoyan/react-pwa/tree/master/src/store) of it in this project.
+For store management `overmind` has been used. It's a simple store management tool. Here you can find its [implementation and integration](https://github.com/suren-atoyan/react-pwa/tree/master/src/store).
 
 #### Error Handling
 
@@ -52,7 +52,7 @@ For store management is used `overmind`. It's a simple store management tool. Se
 
 #### Service Worker
 
-In the production application will be used service worker and workbox provided by CRA, plus we "listen" to changes, and in case of new build, the user will get a notification about the new version of the application (app is updatable).
+In the production application there will be used service worker and workbox provided by CRA, plus we "listen" to changes, and in case of new build, the user will get a notification about the new version of the application (app is updatable).
 
 <img src="./public/images/readme/sw.update.png" width="300" title="SW update">
 
@@ -62,15 +62,15 @@ For SEO there is used `react-helmet`. The [Meta component](https://github.com/su
 
 #### No IE
 
-A special script works in the index.html file for checking if the browser of the user is IE or not. And if it is, the execution of the application is being stopped and a special message will be shown. You may not think about the compatibility of the app and IE, plus you may not think about how broken your app will be in different versions of IE. So, all users of IE will see this message when they visit your app.
+A special script works in the index.html file for checking if the browser of the user is IE or not. And if it is the case, the execution of the application will be stopped and a special message will be shown. You may not think about the compatibility of the app and IE, plus you may not think about how broken your app will be in different versions of IE. So, all users of IE will see this message when they visit your app.
 
 <img src="./public/images/readme/ie.message.png" width="300" title="IE message">
 
-You can see the implementation of this [here](https://github.com/suren-atoyan/react-pwa/tree/master/public/ie). It supports multiple languages. You can add your language with it's translation [here](https://github.com/suren-atoyan/react-pwa/blob/master/public/ie/init.js#L15).
+You can see the implementation of this [here](https://github.com/suren-atoyan/react-pwa/tree/master/public/ie). It supports multiple languages. You can add your language with its translation [here](https://github.com/suren-atoyan/react-pwa/blob/master/public/ie/init.js#L15).
 
 #### Hoster
 
-There is a simple express server `/hoster/server`, which plays role of static server. The script `start-prop` (`yarn start-prod`), will build the project and start express server. More read in [Usage](#usage) section.
+There is a simple express server `/hoster/server`, which plays the role of a static server. The script `start-prod` (`npm/yarn start-prod`), will build the project and start express server. For more read in [Usage](#usage) section.
 
 ## Usage
 
