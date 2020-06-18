@@ -66,7 +66,7 @@ A special script works in the index.html file for checking if the browser of the
 
 <img src="./public/images/readme/ie.message.png" width="300" title="IE message">
 
-You can see the implementation of this [here](https://github.com/suren-atoyan/react-pwa/tree/master/public/ie). It supports multiple languages. You can add your language with its translation [here](https://github.com/suren-atoyan/react-pwa/blob/master/public/ie/init.js#L15).
+You can see the implementation of this [here](https://github.com/suren-atoyan/react-pwa/tree/master/public/no-ie). It supports multiple languages. You can add your language with its translation [here](https://github.com/suren-atoyan/react-pwa/blob/master/public/no-ie/init.js#L15).
 
 #### Hoster
 
