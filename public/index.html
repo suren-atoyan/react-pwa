@@ -86,7 +86,7 @@
       // set the body color before app initialization, to avoid blinking
       var themeMode = localStorage.getItem('theme-mode');
       var initialBodyStyles = document.createElement('style');
-      var currentBodyColor = themeMode === 'dark' ? '#111' : '#fafafa';
+      var currentBodyColor = themeMode === 'light' ? '#fafafa': '#111';
       initialBodyStyles.innerText = 'body { background-color: ' + currentBodyColor + ' }';
       document.head.appendChild(initialBodyStyles);
     </script>
