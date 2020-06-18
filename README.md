@@ -116,7 +116,7 @@ Initial files:
 
 `Layout`
 
-<img src="./public/images/readme/layout.png" width="500" title="Layout component">
+<img src="./public/images/readme/layout.sc.png" width="500" title="Layout component">
 
 ## [Live Demo](https://react-pwa.surenatoyan.com/)
 
