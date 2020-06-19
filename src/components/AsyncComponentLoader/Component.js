@@ -2,9 +2,9 @@ import React, { Suspense } from 'react';
 
 import Loading from 'components/Loading';
 
-const AsyncComponentLoader = (Component, loadinProps) => props => {
+const AsyncComponentLoader = (Component, loadingProps) => props => {
   return (
-    <Suspense fallback={<Loading {...loadinProps} />}>
+    <Suspense fallback={<Loading {...loadingProps} />}>
       <Component {...props} />
     </Suspense>
   );
