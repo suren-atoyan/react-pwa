@@ -2,7 +2,7 @@ import * as serviceWorker from './serviceWorker';
 
 import store from 'store';
 
-import './index.css';
+import './global.css';
 
 if (!document.ie) { // check for ie
   Promise.all([
