@@ -72,6 +72,12 @@ You can see the implementation of this [here](https://github.com/suren-atoyan/re
 
 There is a simple express server `/hoster/server`, which plays the role of a static server. The script `start-prod` (`npm/yarn start-prod`), will build the project and start express server. For more read in [Usage](#usage) section.
 
+## Size
+
+After all these integrations the biggest bundle size is **~59KB**. It means even first load will be pretty fast (in my case it's 1.1s), further loads (already cached by service worker and workbox) will take ~0.25s.
+
+<img src="./public/images/readme/build.png" width="300" title="build">
+
 ## Usage
 
 You can use this template just by pressing `Use this temaplte`.
