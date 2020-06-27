@@ -8,7 +8,7 @@ if (!document.ie) { // check for ie
   Promise.all([
     import('react'),
     import('react-dom'),
-    import('./App'),
+    import('App'),
   ]).then(([
     { default: React },
     { default: ReactDOM },
