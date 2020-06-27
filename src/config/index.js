@@ -1,3 +1,5 @@
+import { isMobile } from 'utils';
+
 /* set your data here */
 const email = 'super-email-of-the-auther@gmail.com';
 const domain = 'your-project-domain.com'
@@ -68,6 +70,17 @@ const title = 'React PWA';
 
 const themePair = ['dark', 'light'];
 
+const notifications = {
+  options: {
+    anchorOrigin: {
+      vertical: 'bottom',
+      horizontal: 'left',
+    },
+    autoHideDuration: 3000,
+  },
+  maxSnack: isMobile ? 3 : 4,
+};
+
 export {
   messages,
   cancelationMessage,
@@ -78,5 +91,6 @@ export {
   repository,
   title,
   themePair,
+  notifications,
   themes,
 };
