@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "dayjs": "^1.8.28",
     "is-mobile": "^2.2.1",
+    "notistack": "^0.9.17",
     "overmind": "^24.1.1",
     "overmind-react": "^25.1.1",
     "react": "^16.13.1",
