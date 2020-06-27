@@ -7,6 +7,7 @@ const initialState = {
     isUpdated: false,
     registration: null,
   },
+  notifications: [],
 };
 
 export { initialState };

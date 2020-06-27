@@ -1,4 +1,5 @@
 import { resetApp } from 'utils';
+import { v1 as uuidv1 } from 'uuid';
 
 const SW = {}; // don't keep it in the store
 
@@ -26,4 +27,6 @@ const theme = {
   },
 };
 
-export { sw, theme };
+const genUUID = uuidv1;
+
+export { sw, theme, genUUID };

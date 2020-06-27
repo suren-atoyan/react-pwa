@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import AppBar from 'sections/AppBar';
 import Menu from 'sections/Menu';
 
-export default function Navigation() {
+function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuOpen = () => {
@@ -20,4 +20,6 @@ export default function Navigation() {
       <AppBar isMenuOpen={isMenuOpen} onMenuOpen={handleMenuOpen} />
     </>
   );
-};
+}
+
+export default Navigation;

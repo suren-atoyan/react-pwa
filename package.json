@@ -1,6 +1,6 @@
 {
   "name": "react-pwa",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.10.2",
@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "dayjs": "^1.8.28",
     "is-mobile": "^2.2.1",
+    "notistack": "^0.9.17",
     "overmind": "^24.1.1",
     "overmind-react": "^25.1.1",
     "react": "^16.13.1",
@@ -17,7 +18,8 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^3.10.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "uuid": "^8.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
