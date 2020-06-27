@@ -1,4 +1,4 @@
-import { themePair } from 'config';
+import { themePair, notifications as notificationsDefoults } from 'config';
 
 const theme = {
   toggle({ effects, state }) {
@@ -21,7 +21,37 @@ const sw = {
   },
 };
 
+const notifications = {
+  push({ state, effects }, notification) {
+    state.notifications.push({
+      ...notification,
+      dismissed: false,
+      options: {
+        ...notificationsDefoults.options,
+        ...notification.options,
+        key: effects.genUUID(),
+      },
+    });
+  },
+
+  close({ state }, key, dismissAll = !key) {
+
+    state.notifications = state.notifications.map(
+      notification => (dismissAll || notification.options.key === key)
+        ? { ...notification, dismissed: true }
+        : { ...notification }
+    );
+  },
+
+  remove({ state }, key) {
+    state.notifications = state.notifications.filter(
+      notification => notification.options.key !== key,
+    );
+  },
+};
+
 export {
   theme,
   sw,
+  notifications,
 };
