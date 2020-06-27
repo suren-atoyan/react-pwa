@@ -20,8 +20,9 @@ By the same philosophy, there are other routines above the basic configuration, 
 * [CRA](#cra)
 * [React Router](#react-router)
 * [Material UI](#material-ui)
-* [Theme](#theme)
 * [Store](#store)
+* [Theme](#theme)
+* [Notifications](#notifications)
 * [Error Handling](#error-handling)
 * [Service Worker](#service-worker)
 * [SEO](#seo)
@@ -38,15 +39,64 @@ The latest version of `react-router-dom` is integrated. Routes are defined in [/
 
 #### Material UI
 
-The latest version of `Material-UI` is integrated. The whole layout of the application is made by `Material-UI` components. In the demonstrated components/sections you can notice how MUI components can be customized. The styling system is also inherited from MUI.
-
-#### Theme
-
-The [theme system](https://github.com/suren-atoyan/react-pwa/blob/master/src/theme/ThemeProvider.js) is based on MUI theme. There are two themes' styles that are defined in the [config file](https://github.com/suren-atoyan/react-pwa/blob/master/src/config/index.js). The theme provider, which is based on MUI is integrated with app and store.
+The latest version of [Material-UI](https://material-ui.com/) is integrated. The whole layout of the application is made by `Material-UI` components. In the demonstrated components/sections you can notice how MUI components can be customized. The styling system is also inherited from MUI.
 
 #### Store
 
-For store management `overmind` has been used. It's a simple store management tool. Here you can find its [implementation and integration](https://github.com/suren-atoyan/react-pwa/tree/master/src/store).
+For store management [overmind](https://github.com/cerebral/overmind) has been used. It's a simple store management tool. Here you can find its [implementation and integration](https://github.com/suren-atoyan/react-pwa/tree/master/src/store).
+
+You can use `useStore` hook exported from `store`. It'll give you `state`, `actions` and `effects`, which you can use.
+
+```js
+// ...
+import { useStore } from 'store';
+
+function SomeCoolComponent() {
+  const { state, actions, effects } = useStore();
+
+  // ...
+}
+```
+
+#### Theme
+
+The [theme system](https://github.com/suren-atoyan/react-pwa/blob/master/src/theme/ThemeProvider.js) is based on MUI theme. It's integrated with store, so, see how you can use it:
+
+```js
+// ...
+import { useStore } from 'store';
+
+function SomeCoolComponent() {
+  const { state, actions } = useStore();
+
+  // let's see what is the current theme mode
+  console.log(state.theme.mode);
+
+  // and if you want to change the theme, call appropriate action
+  function toggleTheme() {
+    actions.theme.toggle();
+  }
+}
+```
+
+Also you can modify predefined theme parameters in [config](https://github.com/suren-atoyan/react-pwa/blob/master/src/config/index.js#L29) file.
+
+#### Notifications
+
+Here we've used [notistack](https://github.com/iamhosseindhv/notistack). It's integrated with store and to show a notification you just need to call the appropriate action; look how you can do it:
+
+```js
+// ...
+import { useStore } from 'store';
+
+function SomeCoolComponent() {
+  const { actions } = useStore();
+
+  function showNiceWarning() {
+    actions.notifications.push({ message: 'Heeeeey, something went wrong I guess' });
+  }
+}
+```
 
 #### Error Handling
 
@@ -76,9 +126,9 @@ There is a simple express server `/hoster/server`, which plays the role of a sta
 
 ## Size
 
-After all these integrations the biggest bundle size is **~59KB**. It means even first load will be pretty fast (in my case it's 1.1s), further loads (already cached by service worker and workbox) will take ~0.25s.
+After all these integrations the biggest bundle size is **~66KB**. It means even first load will be pretty fast (in my case it's 1.1s), further loads (already cached by service worker and workbox) will take ~0.25s.
 
-<img src="./public/images/readme/build.png" width="300" title="build">
+<img src="./public/images/readme/build.png" width="300" title="Build">
 
 ## Usage
 
@@ -110,7 +160,7 @@ The last one will build your project (`yarn build`) and start express server (`y
 
 ## Structure
 
-<img src="./public/images/readme/structure.png" width="200" title="index.js file">
+<img src="./public/images/readme/structure.png" width="200" title="Structure">
 
 Initial files:
 
@@ -137,7 +187,7 @@ Initial files:
 NOTE: The performance is not 100 because of demo server.
 Check the results in the [live demo](https://react-pwa.surenatoyan.com/)
 
-<img src="./public/images/readme/audit.png" width="500" title="audit results">
+<img src="./public/images/readme/audit.png" width="500" title="Audit results">
 
 ## TODOs
 
