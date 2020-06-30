@@ -22,8 +22,8 @@ import { loader } from 'config';
 //    has come-and-gone quickly, which will lead to blinking on the page
 
 // The solution of the first problem is a so-called "delayed fallback", which gives us
-// an opportunity to not show the fallback component if the asynchronous process
-// is finished until a certain amount of time
+// an opportunity to not show the fallback component if the loading process
+// takes less than a certain amount of time
 // So, the implementation of it is here:
 
 const getDelayedFallback = (LoadingComponent, delay) => props => {
@@ -46,10 +46,10 @@ const getDelayedFallback = (LoadingComponent, delay) => props => {
 //    but when that process is continuing longer than the `delay`, then the fallback component should
 //    be appeared. Okay, now let's consider a situation when the loading process finishes a millisecond
 //    after appearing of the fallback component. We will see the fallback component has come-and-gone
-//    quickly, which will lead to blinking on the page.
+//    quickly, which will again lead to blinking on the page.
 
-// The solution of the second problem is the setting up of a minimum timeout, which will
-// ensure the minimum amount of time of fallback component render.
+// The solution of the second problem is to set of a minimum timeout, which will
+// ensure that the falback component will be rendered for that minimum amount of time
 
 const getLazyComponent = (loadComponent, delay, minimumLoading) => lazy(_ => {
   // fix the moment of starting loading
@@ -73,7 +73,7 @@ const getLazyComponent = (loadComponent, delay, minimumLoading) => lazy(_ => {
       //    and the main component will be rendered
       // 2) when `diff` is bigger than `loader.delay` but less than `loader.delay + loader.minimumLoading`;
       //    it means `fallback` component has already been rendering and we have to
-      //    wait, starting from this moment, for `loader.delay + loader.minimumLoading - diff`
+      //    wait (starting from this moment) for `loader.delay + loader.minimumLoading - diff`
       //    amount of time
       // 3) when `diff` is bigger than `loader.delay + loader.minimumLoading`. It means we don't need to wait
       //    anymore and we should immediately return the result as we do it in 1) case.
@@ -95,8 +95,8 @@ const getLazyComponent = (loadComponent, delay, minimumLoading) => lazy(_ => {
 
 /* ================================================================================== */
 
-// And the combination of those two (plus some "magic" plus some backflips),
-// will ensure us from having any kind of blinking in the process of asynchronous loadings
+// And the combination of these two (plus some "magic" plus some backflips),
+// will secure us from having any kind of blinking in the process of asynchronous loadings
 
 // INFO: the usage of `asyncComponentLoader` looks like this:
 // asyncComponentLoader(_ => import('pages/Welcome'))
