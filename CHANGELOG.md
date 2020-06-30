@@ -1,5 +1,12 @@
 ### Releases
 
+## v1.0.1
+###### *June 30, 2020*
+
+One with delayed fallback and "minimum" loading
+
+- utils: redesign asyncComponentLoader, add delayed fallback and "minimum" loading
+
 ## v1.0.0
 ###### *June 19, 2020*
 
