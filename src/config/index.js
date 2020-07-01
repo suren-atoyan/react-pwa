@@ -17,6 +17,9 @@ const messages = {
       },
     },
   },
+  loader: {
+    fail: 'Hmmmmm, there is something wrong with this component loading process... Maybe trying later would be the best idea',
+  },
   images: {
     failed: 'something went wrong during image loading :(',
   },
