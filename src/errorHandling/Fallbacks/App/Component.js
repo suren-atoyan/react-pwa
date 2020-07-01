@@ -11,7 +11,7 @@ import { messages, email } from 'config';
 
 import useStyles from './styles';
 
-function ErrorBoundaryFallback() {
+function AppErrorBoundaryFallback() {
   const classes = useStyles();
 
   return (
@@ -36,4 +36,4 @@ function ErrorBoundaryFallback() {
   );
 }
 
-export default ErrorBoundaryFallback;
+export default AppErrorBoundaryFallback;
