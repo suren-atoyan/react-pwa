@@ -1,9 +1,6 @@
 import React, { Suspense, useState, useEffect, lazy } from 'react';
 
-import Loading from 'components/Loading';
-
 import { sleep } from 'utils';
-import { loader } from 'config';
 
 // a little bit complex staff is going on here
 // let me explain it
@@ -26,7 +23,7 @@ import { loader } from 'config';
 // takes less than a certain amount of time
 // So, the implementation of it is here:
 
-const getDelayedFallback = (LoadingComponent, delay) => props => {
+const getDelayedFallback = (Fallback, delay) => props => {
   const [isDelayPassed, setIsDelayPassed] = useState(false);
 
   useEffect(_ => {
@@ -35,7 +32,7 @@ const getDelayedFallback = (LoadingComponent, delay) => props => {
     return _ => clearTimeout(timerId);
   }, []);
 
-  return isDelayPassed && <LoadingComponent {...props} />;
+  return isDelayPassed && <Fallback {...props} />;
 }
 
 /* ================================================================================== */
@@ -51,7 +48,7 @@ const getDelayedFallback = (LoadingComponent, delay) => props => {
 // The solution of the second problem is to set of a minimum timeout, which will
 // ensure that the falback component will be rendered for that minimum amount of time
 
-const getLazyComponent = (loadComponent, delay, minimumLoading) => lazy(_ => {
+const getLazyComponent = (loadComponent, loaderOptions, FallbackFail) => lazy(_ => {
   // fix the moment of starting loading
   const start = performance.now();
   // start loading
@@ -61,52 +58,65 @@ const getLazyComponent = (loadComponent, delay, minimumLoading) => lazy(_ => {
       const end = performance.now();
       const diff = end - start;
 
-      // first of all, let's remember that there are two values that user provides us
-      // 1) `loader.delay` - if the loading process is finished during this amount of time
+      // first of all, let's remember that we also have `loaderOptions` optionally
+      // provided by user, it has `delay` and `minimumLoading`:
+      // 1) `delay` - if the loading process is finished during this amount of time
       //    the user will not see the fallback component at all
-      // 2) `loader.minimumLoading` - but if it appears, it will stay rendered for at least
+      // 2) `minimumLoading` - but if it appears, it will stay rendered for at least
       //    this amount of time
 
       // so, according to above mentioned, there are three conditions we are interested in
-      // 1) when `diff` is less than `loader.delay`; in this case, we will immediately return
+      // 1) when `diff` is less than `delay`; in this case, we will immediately return
       //    the result, thereby we will prevent the rendering of the fallback
       //    and the main component will be rendered
-      // 2) when `diff` is bigger than `loader.delay` but less than `loader.delay + loader.minimumLoading`;
+      // 2) when `diff` is bigger than `delay` but less than `delay + minimumLoading`;
       //    it means `fallback` component has already been rendering and we have to
-      //    wait (starting from this moment) for `loader.delay + loader.minimumLoading - diff`
+      //    wait (starting from this moment) for `delay + minimumLoading - diff`
       //    amount of time
-      // 3) when `diff` is bigger than `loader.delay + loader.minimumLoading`. It means we don't need to wait
+      // 3) when `diff` is bigger than `delay + minimumLoading`. It means we don't need to wait
       //    anymore and we should immediately return the result as we do it in 1) case.
 
       // so, in the 1) and 3) cases we return the result immediately, and in 2) case we have to wait
-      // at least for `loader.delay + loader.minimumLoading - diff` amount of time
+      // at least for `delay + minimumLoading - diff` amount of time
 
-      if (
-        (diff < loader.delay) || (
-          (diff > loader.delay) && (diff > loader.delay + loader.minimumLoading)
-        )
-      ) {
+      const { delay, minimumLoading } = loaderOptions;
+
+      if ((diff < delay) || ((diff > delay) && (diff > delay + minimumLoading))) {
         return moduleExports;
       } else {
-        return sleep(loader.delay + loader.minimumLoading - diff).then(_ => moduleExports);
+        return sleep(delay + minimumLoading - diff).then(_ => moduleExports);
       }
-    });
+    })
+    .catch(_ => ({ default: FallbackFail }));
 });
 
 /* ================================================================================== */
 
-// And the combination of these two (plus some "magic" plus some backflips),
+// And the combination of these two (plus some "magic" plus some backflips)
 // will secure us from having any kind of blinking in the process of asynchronous loadings
 
 // INFO: the usage of `asyncComponentLoader` looks like this:
 // asyncComponentLoader(_ => import('pages/Welcome'))
 
-const asyncComponentLoader = (loadComponent, loadingProps) => props => {
-  const Fallback = loader.delay ? getDelayedFallback(Loading, loader.delay) : Loading;
-  const LazyComponent = getLazyComponent(loadComponent, loader.delay, loader.minimumLoading);
+const asyncComponentLoader = (
+  loadComponent,
+  loaderOptions,
+  FallbackWaiting,
+  FallbackFail,
+) => props => {
+
+  const Fallback = loaderOptions.delay
+    ? getDelayedFallback(FallbackWaiting, loaderOptions.delay)
+    : FallbackWaiting;
+
+  const LazyComponent = getLazyComponent(
+    loadComponent,
+    loaderOptions,
+    FallbackFail,
+  );
 
   return (
-    <Suspense fallback={<Fallback {...loadingProps} />}>
+    <Suspense fallback={<Fallback />}>
       <LazyComponent {...props} />
     </Suspense>
   );
