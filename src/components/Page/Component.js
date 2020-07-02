@@ -8,8 +8,10 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { useLocation, Link as RouterLink } from 'react-router-dom';
 
 import Divider from 'components/Divider';
-import routes from 'routes';
+import _routes from 'routes';
 import useStyles from './styles';
+
+const routes = _routes.filter(route => route.details);
 
 const Page = props => {
   const classes = useStyles();
@@ -17,7 +19,9 @@ const Page = props => {
 
   const currentRouteIndex = routes.findIndex(route => route.path === location.pathname);
   const isPrevDisabled = currentRouteIndex === 0;
-  const isNextDisabled = currentRouteIndex === routes.length - 2;
+  const isNextDisabled = currentRouteIndex === routes.length - 1;
+  const prevRoute = isPrevDisabled ? null : routes[currentRouteIndex - 1];
+  const nextRoute = isNextDisabled ? null : routes[currentRouteIndex + 1];
 
   return (
     <Box className={classes.root}>
@@ -29,14 +33,14 @@ const Page = props => {
             disabled={isPrevDisabled}
             startIcon={<FaArrowLeft />}
             component={RouterLink}
-            to={!isPrevDisabled && routes[currentRouteIndex - 1].path}
-          >{!isPrevDisabled && routes[currentRouteIndex - 1].details.title}</Button>
+            to={prevRoute?.path}
+          >{prevRoute?.details.title}</Button>
           <Button
             disabled={isNextDisabled}
             endIcon={<FaArrowRight />}
             component={RouterLink}
-            to={!isNextDisabled && routes[currentRouteIndex + 1].path}
-          >{!isNextDisabled && routes[currentRouteIndex + 1].details.title}</Button>
+            to={nextRoute?.path}
+          >{nextRoute?.details.title}</Button>
          </Box>
       </Box>
     </Box>
