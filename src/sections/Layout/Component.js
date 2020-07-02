@@ -20,7 +20,6 @@ function Layout() {
         <Box className={classes.spacer} />
         <Box className={classes.content}>
           <Content />
-          <Copyright />
         </Box>
       </Box>
     </>

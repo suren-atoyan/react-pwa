@@ -7,20 +7,20 @@ import Meta from 'components/Meta';
 
 import useStyles from './styles';
 
-function Page2() {
+function Notifications() {
   const classes = useStyles();
 
   return (
     <>
       <Meta
-        title="Page 2"
-        description="Page 2"
+        title="Notifications"
+        description="Notifications"
       />
       <Container maxWidth="sm" className={classes.root}>
-        <Typography variant="h3">Page 2</Typography>
+        <Typography variant="h3">Notifications</Typography>
       </Container>
     </>
   );
 }
 
-export default Page2;
+export default Notifications;

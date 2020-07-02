@@ -12,16 +12,45 @@ import { Link as RouterLink } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 
 import {
-  FaHome as WelcomeIcon,
-  FaJsSquare as JSIcon,
-  FaReact as ReactIcon,
-  FaGithub as GithubIcon,
-  FaBug as BugIcon,
+  FaHome,
+  FaCogs,
+  FaReact,
+  FaShapes,
+  FaWarehouse,
+  FaEnvelope,
+  FaExclamationTriangle,
+  FaSyncAlt,
+  FaSearchengin,
+  FaSmileWink,
+  FaServer,
+  FaBoxes,
+  FaBalanceScaleLeft,
+  FaCheckDouble,
+  FaAnchor,
 } from 'react-icons/fa';
+
+import routes from 'routes';
 
 import { isMobile } from 'utils';
 
 import useStyles from './styles';
+
+const icons = {
+  '/': FaHome,
+  '/usage': FaCogs,
+  '/cra': FaReact,
+  '/mui': FaShapes,
+  '/store': FaWarehouse,
+  '/notifications': FaEnvelope,
+  '/error-handling': FaExclamationTriangle,
+  '/service-worker': FaSyncAlt,
+  '/seo': FaSearchengin,
+  '/no-ie': FaSmileWink,
+  '/hoster': FaServer,
+  '/structure': FaBoxes,
+  '/size': FaBalanceScaleLeft,
+  '/audit': FaCheckDouble,
+};
 
 const StyledMenuItem = withStyles({ root: { width: '100%' } })(props => <MenuItem {...props} />);
 
@@ -42,36 +71,23 @@ function Menu({ isOpen, onClose, onOpen }) {
     >
       <List className={classes.list}>
         <div className={classes.toolbar} />
-        <StyledMenuItem onClick={onClose} component={RouterLink} to="/">
-          <ListItemIcon>
-            <WelcomeIcon />
-          </ListItemIcon>
-          <ListItemText primary="Welcome" />
-        </StyledMenuItem>
-        <StyledMenuItem onClick={onClose} component={RouterLink} to="/page-1">
-          <ListItemIcon>
-            <JSIcon />
-          </ListItemIcon>
-          <ListItemText primary="Page 1" />
-        </StyledMenuItem>
-        <StyledMenuItem onClick={onClose} component={RouterLink} to="/page-2">
-          <ListItemIcon>
-            <ReactIcon />
-          </ListItemIcon>
-          <ListItemText primary="Page 2" />
-        </StyledMenuItem>
-        <StyledMenuItem onClick={onClose} component={RouterLink} to="/page-3">
-          <ListItemIcon>
-            <GithubIcon />
-          </ListItemIcon>
-          <ListItemText primary="Page 3" />
-        </StyledMenuItem>
-        <StyledMenuItem onClick={onClose} component={RouterLink} to="/page-4">
-          <ListItemIcon>
-            <BugIcon />
-          </ListItemIcon>
-          <ListItemText primary="Page 4" />
-        </StyledMenuItem>
+        {
+          routes.filter(route => route.details).map(route => {
+            return (
+              <StyledMenuItem
+                key={route.path}
+                onClick={onClose}
+                component={RouterLink}
+                to={route.path}
+              >
+                <ListItemIcon>
+                  {React.createElement(icons[route.path] || FaAnchor)}
+                </ListItemIcon>
+                <ListItemText primary={route.details.title} />
+              </StyledMenuItem>
+            )
+          })
+        }
       </List>
     </SwipeableDrawer>
   );
