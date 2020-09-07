@@ -1,5 +1,11 @@
 ### Releases
 
+## v1.0.2
+###### *Sep 7, 2020*
+
+- lint: update eslint rules (make correction according to new rules)
+- checks: add husky (pre-commit -> lint)
+
 ## v1.0.1
 ###### *June 30, 2020*
 

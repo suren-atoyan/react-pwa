@@ -1,6 +1,6 @@
 {
   "name": "react-pwa",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.10.2",
