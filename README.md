@@ -35,7 +35,7 @@ It's based on CRA, which is (of course) not ejected. It means you have full acce
 
 #### React Router
 
-The latest version of `react-router-dom` is integrated. Routes are defined in [/src/routes/](https://github.com/suren-atoyan/react-pwa/blob/master/src/routes/index.js). In the minimal version of the template, there are demonstrated 5 routes that render 5 pages. Pages are loaded asynchronously by [AsyncComponentLoader](https://github.com/suren-atoyan/react-pwa/blob/master/src/components/AsyncComponentLoader/Component.js) component (which is optional).
+The latest version of `react-router-dom` is integrated. Routes are defined in [/src/routes/](https://github.com/suren-atoyan/react-pwa/blob/master/src/routes/index.js). In the minimal version of the template, there are demonstrated 5 routes that render 5 pages. Pages are loaded asynchronously by [asyncComponentLoader](https://github.com/suren-atoyan/react-pwa/blob/master/src/utils/asyncComponentLoader/loader.js) utility (which is optional).
 
 #### Material UI
 
