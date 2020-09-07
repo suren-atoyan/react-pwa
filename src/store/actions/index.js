@@ -1,4 +1,4 @@
-import { themePair, notifications as notificationsDefoults } from 'config';
+import { themePair, notifications as notificationsDefaults } from 'config';
 
 const theme = {
   toggle({ effects, state }) {
@@ -16,7 +16,7 @@ const sw = {
     state.sw.isUpdated = true;
     effects.sw.saveRegistration(registration);
   },
-  update({ effects, state }) {
+  update({ effects }) {
     effects.sw.update();
   },
 };
@@ -27,7 +27,7 @@ const notifications = {
       ...notification,
       dismissed: false,
       options: {
-        ...notificationsDefoults.options,
+        ...notificationsDefaults.options,
         ...notification.options,
         key: effects.genUUID(),
       },

@@ -15,6 +15,6 @@ function CustomThemeProvider({ children }) {
       {children}
     </ThemeProvider>
   );
-};
+}
 
 export default CustomThemeProvider;

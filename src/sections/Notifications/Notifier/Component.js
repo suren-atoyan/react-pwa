@@ -17,7 +17,7 @@ function Notifier() {
     displayed.current = [...displayed.current.filter(_key => key !== _key)];
   }
 
-  useEffect(_ => {
+  useEffect(() => {
     notifications.forEach(({ message, options, dismissed }) => {
       if (dismissed) {
         // dismiss snackbar using notistack

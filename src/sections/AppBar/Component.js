@@ -30,7 +30,7 @@ const Divider = withStyles({
   },
 })(props => <DividerMU flexItem orientation="vertical" {...props} />);
 
-function AppBar_({ isMenuOpen, onMenuOpen }) {
+function AppBar_({ onMenuOpen }) {
   const classes = useStyles();
   const { state, actions } = useStore();
 
