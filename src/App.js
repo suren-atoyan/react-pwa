@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { RecoilRoot } from 'recoil';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Box from '@material-ui/core/Box';
 
@@ -8,13 +9,12 @@ import { App as ErrorBoundaryFallback } from 'errorHandling/Fallbacks';
 
 import Layout from 'sections/Layout';
 import { ThemeProvider } from 'theme';
-import { StoreProvider } from 'store';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
-    <StoreProvider>
+    <RecoilRoot>
       <ThemeProvider>
         <Box display="flex">
           <CssBaseline />
@@ -23,7 +23,7 @@ function App() {
           </Router>
         </Box>
       </ThemeProvider>
-    </StoreProvider>
+    </RecoilRoot>
   );
 }
 
