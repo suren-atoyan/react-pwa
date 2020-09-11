@@ -1,6 +1,6 @@
 import * as serviceWorker from './serviceWorker';
 
-import { getSWActions } from 'store/sw';
+import { getActions as getSWActions } from 'store/sw';
 
 import './global.css';
 

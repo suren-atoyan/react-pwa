@@ -4,7 +4,7 @@ import state from 'state-local';
 import { noop } from 'utils';
 import * as effects from 'store/effects';
 
-const [getSWActions, setSWActions] = state.create({
+const [getActions, setActions] = state.create({
   handleSuccess: noop,
   handleUpdate: noop,
   update: noop,
@@ -35,11 +35,11 @@ function useSW() {
     effects.sw.update();
   }
 
-  setSWActions({ handleSuccess, handleUpdate, update });
+  setActions({ handleSuccess, handleUpdate, update });
 
   return [sw, { handleSuccess, handleUpdate, update }];
 }
 
-export { getSWActions };
+export { getActions };
 
 export default useSW;
