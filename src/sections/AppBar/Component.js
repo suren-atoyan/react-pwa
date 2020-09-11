@@ -18,7 +18,9 @@ import {
 
 import Link from 'components/Link';
 
-import { useStore } from 'store';
+import useTheme from 'store/theme';
+import useSW from 'store/sw';
+
 import { title, repository } from 'config';
 
 import useStyles from './styles';
@@ -32,14 +34,15 @@ const Divider = withStyles({
 
 function AppBar_({ onMenuOpen }) {
   const classes = useStyles();
-  const { state, actions } = useStore();
+  const [, themeActions] = useTheme();
+  const [swState, swActions] = useSW();
 
   function handleToggleTheme() {
-    actions.theme.toggle();
+    themeActions.toggle();
   }
 
   function handleAppUpdate() {
-    actions.sw.update();
+    swActions.update();
   }
 
   return (
@@ -66,7 +69,7 @@ function AppBar_({ onMenuOpen }) {
         </Box>
         <Box display="flex">
           {
-            state.sw.isUpdated && (
+            swState.isUpdated && (
               <>
                 <Tooltip title="The application has newer version; press to update" arrow>
                   <IconButton aria-label="update the application" color="secondary" onClick={handleAppUpdate}>

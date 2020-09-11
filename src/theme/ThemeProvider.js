@@ -3,15 +3,15 @@ import React from 'react';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 
-import { useStore } from 'store';
+import useTheme from 'store/theme';
 
 import { themes } from 'config';
 
 function CustomThemeProvider({ children }) {
-  const { state: { theme } } = useStore();
+  const [theme] = useTheme();
 
   return (
-    <ThemeProvider theme={createMuiTheme(themes[theme.mode])}>
+    <ThemeProvider theme={createMuiTheme(themes[theme])}>
       {children}
     </ThemeProvider>
   );

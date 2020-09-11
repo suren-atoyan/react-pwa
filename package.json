@@ -10,8 +10,6 @@
     "dayjs": "^1.8.28",
     "is-mobile": "^2.2.1",
     "notistack": "^0.9.17",
-    "overmind": "^24.1.1",
-    "overmind-react": "^25.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-error-boundary": "^2.2.2",
@@ -19,6 +17,8 @@
     "react-icons": "^3.10.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "recoil": "^0.0.10",
+    "state-local": "^1.0.1",
     "uuid": "^8.2.0"
   },
   "scripts": {
