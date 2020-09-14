@@ -43,38 +43,29 @@ The latest version of [Material-UI](https://material-ui.com/) is integrated. The
 
 #### Store
 
-For store management [overmind](https://github.com/cerebral/overmind) has been used. It's a simple store management tool. Here you can find its [implementation and integration](https://github.com/suren-atoyan/react-pwa/tree/master/src/store).
+For store management [recoil](https://github.com/facebookexperimental/Recoil) has been used. It's a simple state management tool. Here you can find its [implementation and integration](https://github.com/suren-atoyan/react-pwa/tree/master/src/store).
 
-You can use `useStore` hook exported from `store`. It'll give you `state`, `actions` and `effects`, which you can use.
+There is no global state object like in Redux, each part of shared state has it's own "life". For example there are `store/theme`, `store/sw` and `store/notifications`. See how you can use `store/theme` in [the example](https://github.com/suren-atoyan/react-pwa#theme) below.
 
-```js
-// ...
-import { useStore } from 'store';
-
-function SomeCoolComponent() {
-  const { state, actions, effects } = useStore();
-
-  // ...
-}
-```
+NOTE: you can also see how it's can be done with [overmindjs](https://github.com/cerebral/overmind) [here](https://github.com/suren-atoyan/react-pwa/tree/a849c006cd45f577bf0c7da78efaa51246254448/src/store).
 
 #### Theme
 
-The [theme system](https://github.com/suren-atoyan/react-pwa/blob/master/src/theme/ThemeProvider.js) is based on MUI theme. It's integrated with store, so, see how you can use it:
+The [theme system](https://github.com/suren-atoyan/react-pwa/blob/master/src/theme/ThemeProvider.js) is based on MUI theme. See how you can use it:
 
 ```js
 // ...
-import { useStore } from 'store';
+import { useTheme } from 'store/theme';
 
 function SomeCoolComponent() {
-  const { state, actions } = useStore();
+  const [theme, actions] = useTheme();
 
   // let's see what is the current theme mode
-  console.log(state.theme.mode);
+  console.log(theme);
 
   // and if you want to change the theme, call appropriate action
   function toggleTheme() {
-    actions.theme.toggle();
+    actions.toggle();
   }
 }
 ```
@@ -83,17 +74,17 @@ Also you can modify predefined theme parameters in [config](https://github.com/s
 
 #### Notifications
 
-Here we've used [notistack](https://github.com/iamhosseindhv/notistack). It's integrated with store and to show a notification you just need to call the appropriate action; look how you can do it:
+Here we've used [notistack](https://github.com/iamhosseindhv/notistack). To show a notification you just need to call the appropriate action; look how you can do it:
 
 ```js
 // ...
-import { useStore } from 'store';
+import { useNotifications } from 'store/notifications';
 
 function SomeCoolComponent() {
-  const { actions } = useStore();
+  const [notifications, actions] = useNotifications();
 
   function showNiceWarning() {
-    actions.notifications.push({ message: 'Heeeeey, something went wrong I guess' });
+    actions.push({ message: 'Heeeeey, something went wrong I guess' });
   }
 }
 ```
