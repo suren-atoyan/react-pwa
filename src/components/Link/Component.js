@@ -13,7 +13,7 @@ function Link({ className, ...props }) {
     : RouterLink
 
   return (
-    <Component {...props} className={clsx(classes.root, className)}/>
+    <Component {...props} className={clsx(classes.root, className)} />
   );
 }
 

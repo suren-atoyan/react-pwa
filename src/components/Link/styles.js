@@ -1,8 +1,10 @@
 import { makeStyles } from '@material-ui/core';
 
-export default makeStyles(() => ({
+const useStyles = makeStyles(() => ({
   root: {
     'text-decoration': 'none',
     color: 'inherit',
   },
 }));
+
+export default useStyles;
