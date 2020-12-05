@@ -2,7 +2,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   preloader: {
-    position: 'absolute',
+    zIndex: 10,
+    position: ({ position }) => position,
     width: '100%',
     height: '100%',
     left: 0,
