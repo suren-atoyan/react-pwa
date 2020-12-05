@@ -9,7 +9,9 @@
   - Loading: add first class property `position`
   - NotFound: add 404 gif from `giphy`, move from `Box` to `Fb`
   - Link: fix `export default` style
-  - Fb: create flexbox component
+  - Fb: create flexbox component, replace all `Box` components with `Fb`
+- utils: remove single entry point, use only direct paths for utils
+- store: use atom effects in theme, style corrections
 
 ## v1.0.2
 ###### *Sep 7, 2020*
