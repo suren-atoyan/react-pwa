@@ -6,8 +6,8 @@ import clsx from 'clsx';
 
 import useStyles from './styles';
 
-function Loading({ size, withoutBackground }) {
-  const classes = useStyles();
+function Loading({ size, withoutBackground, position = 'absolute' }) {
+  const classes = useStyles({ position });
 
   return (
     <Paper

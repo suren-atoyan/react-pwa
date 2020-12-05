@@ -1,9 +1,11 @@
 import React from 'react';
 
-import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 
-import { messages } from 'config';
+import Divider from 'components/Divider';
+import Fb from 'components/Fb';
+import { giphy404, messages } from 'config';
 
 import useStyles from './styles';
 
@@ -11,16 +13,44 @@ function NotFound() {
   const classes = useStyles();
 
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      height="100%"
+    <Container
+      maxWidth="md"
+      className={classes.container}
     >
-      <Typography variant="h4" className={classes.message}>
-        404 Not Found - {messages[404]}
-      </Typography>
-    </Box>
+      <Fb
+        column
+        alignCenter
+        justifyCenter
+        className="full-height"
+      >
+        <iframe
+          title="404"
+          src={giphy404}
+          className={classes.giphy}
+          frameBorder="0"
+          allowFullScreen
+        >
+        </iframe>
+        <Fb
+          column
+          className={classes.message}
+        >
+          <Typography
+            variant="h4"
+            color="secondary"
+          >
+            404 Not Found
+          </Typography>
+          <Divider variant="middle" />
+          <Typography
+            variant="h4"
+            color="textSecondary"
+          >
+            {messages[404]}
+          </Typography>
+        </Fb>
+      </Fb>
+    </Container>
   );
 }
 

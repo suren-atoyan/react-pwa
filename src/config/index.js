@@ -1,4 +1,4 @@
-import { isMobile } from 'utils';
+import isMobile from 'utils/isMobile';
 
 /* set your data here */
 const email = 'super-email-of-the-auther@gmail.com';
@@ -90,6 +90,8 @@ const loader = {
   minimumLoading: 700, // but if it appears, it will stay for at least 700 milliseconds
 };
 
+const giphy404 = 'https://giphy.com/embed/8L0Pky6C83SzkzU55a';
+
 export {
   messages,
   cancelationMessage,
@@ -101,6 +103,7 @@ export {
   loader,
   title,
   themePair,
+  giphy404,
   notifications,
   themes,
 };
