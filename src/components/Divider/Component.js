@@ -5,11 +5,21 @@ import DividerMU from '@material-ui/core/Divider';
 
 import useStyles from './styles';
 
-function Divider({ className, ...props }) {
+function Divider({ className, withoutMargins, ...props }) {
   const classes = useStyles();
 
   return (
-    <DividerMU {...props} className={clsx(classes.root, className)}/>
+    <DividerMU
+      {...props}
+      className={clsx(
+        !withoutMargins && (
+          props.orientation === 'vertical'
+            ? classes.vertical
+            : classes.horizontal
+        ),
+        className,
+      )}
+    />
   );
 }
 
