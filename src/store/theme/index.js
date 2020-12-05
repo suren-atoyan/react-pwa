@@ -1,21 +1,27 @@
 import { atom, useRecoilState } from 'recoil';
 
-import * as effects from 'store/effects';
-
 import { themePair } from 'config';
 
 const themeModeState = atom({
   key: 'themeModeState',
-  default: localStorage.getItem('theme-mode') || 'dark',
+  default: 'dark',
+  effects_UNSTABLE: [
+    synchronizeWithLocalStorage,
+  ],
 });
+
+function synchronizeWithLocalStorage({ setSelf, onSet }) {
+  const storedTheme = localStorage.getItem('theme-mode');
+  storedTheme && setSelf(storedTheme);
+
+  onSet(value => localStorage.setItem('theme-mode', value));
+}
 
 function useTheme() {
   const [themeMode, setThemeMode] = useRecoilState(themeModeState);
 
   function toggle() {
-    const mode = themeMode === themePair[0] ? themePair[1] : themePair[0];
-    setThemeMode(mode);
-    effects.theme.lsSave(mode);
+    setThemeMode(mode => mode === themePair[0] ? themePair[1] : themePair[0]);
   }
 
   return [themeMode, { toggle }];

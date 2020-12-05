@@ -1,8 +1,8 @@
 import { atom, useRecoilState } from 'recoil';
 import state from 'state-local';
 
-import { noop } from 'utils';
-import * as effects from 'store/effects';
+import noop from 'utils/noop';
+import effects from './effects';
 
 const [getActions, setActions] = state.create({
   handleSuccess: noop,
@@ -28,11 +28,11 @@ function useSW() {
 
   function handleUpdate(registration) {
     setSW(state => ({ ...state, isUpdated: true }));
-    effects.sw.saveRegistration(registration);
+    effects.storeRegistration(registration);
   }
 
   function update() {
-    effects.sw.update();
+    effects.update();
   }
 
   setActions({ handleSuccess, handleUpdate, update });

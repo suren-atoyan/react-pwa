@@ -1,12 +1,11 @@
 import React from 'react';
 
-import Box from '@material-ui/core/Box';
-
 import Content from 'sections/Content';
 import Copyright from 'sections/Copyright';
 import Navigation from 'sections/Navigation';
 import Notifications from 'sections/Notifications';
 
+import Fb from 'components/Fb';
 import useStyles from './styles';
 
 function Layout() {
@@ -16,13 +15,13 @@ function Layout() {
     <>
       <Notifications />
       <Navigation />
-      <Box component="main" className={classes.wrapper}>
-        <Box className={classes.spacer} />
-        <Box className={classes.content}>
+      <Fb component="main" className={classes.wrapper}>
+        <Fb className={classes.spacer} />
+        <Fb column justifyBetween className={classes.content}>
           <Content />
           <Copyright />
-        </Box>
-      </Box>
+        </Fb>
+      </Fb>
     </>
   );
 }

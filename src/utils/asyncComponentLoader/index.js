@@ -1,4 +1,4 @@
-import _asyncComponentLoader from './loader';
+import _asyncComponentLoader, { getDelayedFallback } from './loader';
 
 import Loading from 'components/Loading';
 import LoaderErrorBoundaryFallback from 'errorHandling/Fallbacks/Loader';
@@ -11,4 +11,5 @@ const asyncComponentLoader = (
   FallbackFail = LoaderErrorBoundaryFallback,
 ) => _asyncComponentLoader(loadComponent, loaderOptions, FallbackWaiting, FallbackFail);
 
+export { getDelayedFallback };
 export default asyncComponentLoader;

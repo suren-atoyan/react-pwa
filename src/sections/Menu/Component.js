@@ -19,7 +19,7 @@ import {
   FaBug as BugIcon,
 } from 'react-icons/fa';
 
-import { isMobile } from 'utils';
+import isMobile from 'utils/isMobile';
 
 import useStyles from './styles';
 

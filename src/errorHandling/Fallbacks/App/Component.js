@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 
 import { FaRedo as ResetIcon } from 'react-icons/fa';
 
-import { resetApp } from 'utils';
+import resetApp from 'utils/resetApp';
 import { messages, email } from 'config';
 
 import useStyles from './styles';

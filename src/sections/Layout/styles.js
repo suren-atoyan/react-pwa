@@ -9,10 +9,8 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
   },
   content: {
-    display: 'flex',
-    'flex-direction': 'column',
-    'justify-content': 'space-between',
-    height: `calc(100% - ${theme.mixins.toolbar.minHeight + 8}px)`,
+    width: '100%',
+    height: `calc(100% - ${theme.mixins.toolbar + theme.spacing(1)}px)`,
   },
 }));
 

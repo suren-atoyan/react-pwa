@@ -1,5 +1,16 @@
 ### Releases
 
+## v1.1.0
+###### *Dec 6, 2020*
+
+- package.json: update `recoil` version to 0.1.2
+- components:
+  - Divider: add property `withoutMargins`, change margins based on `orientation`
+  - Loading: add first class property `position`
+  - NotFound: add 404 gif from `giphy`, move from `Box` to `Fb`
+  - Link: fix `export default` style
+  - Fb: create flexbox component
+
 ## v1.0.2
 ###### *Sep 7, 2020*
 

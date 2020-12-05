@@ -1,6 +1,6 @@
 import React, { Suspense, useState, useEffect, lazy } from 'react';
 
-import { sleep } from 'utils';
+import sleep from 'utils/sleep';
 
 // a little bit complex staff is going on here
 // let me explain it
@@ -98,28 +98,31 @@ const getLazyComponent = (loadComponent, loaderOptions, FallbackFail) => lazy(()
 // INFO: the usage of `asyncComponentLoader` looks like this:
 // asyncComponentLoader(() => import('pages/Welcome'))
 
-const asyncComponentLoader = (
+function asyncComponentLoader(
   loadComponent,
   loaderOptions,
   FallbackWaiting,
   FallbackFail,
-) => props => {
+) {
+  return function AsyncComponent(props) {
+    const Fallback = loaderOptions.delay
+      ? getDelayedFallback(FallbackWaiting, loaderOptions.delay)
+      : FallbackWaiting;
 
-  const Fallback = loaderOptions.delay
-    ? getDelayedFallback(FallbackWaiting, loaderOptions.delay)
-    : FallbackWaiting;
+    const LazyComponent = getLazyComponent(
+      loadComponent,
+      loaderOptions,
+      FallbackFail,
+    );
 
-  const LazyComponent = getLazyComponent(
-    loadComponent,
-    loaderOptions,
-    FallbackFail,
-  );
+    return (
+      <Suspense fallback={<Fallback />}>
+        <LazyComponent {...props} />
+      </Suspense>
+    );
+  }
+}
 
-  return (
-    <Suspense fallback={<Fallback />}>
-      <LazyComponent {...props} />
-    </Suspense>
-  );
-};
+export { getDelayedFallback };
 
 export default asyncComponentLoader;

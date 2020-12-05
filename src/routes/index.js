@@ -1,4 +1,4 @@
-import { asyncComponentLoader } from 'utils';
+import asyncComponentLoader from 'utils/asyncComponentLoader';
 
 const routes = [
   {

@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-import { isMobile } from 'utils';
+import isMobile from 'utils/isMobile';
 
 const useStyles = makeStyles(theme => ({
   root: {
