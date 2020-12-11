@@ -104,17 +104,17 @@ function asyncComponentLoader(
   FallbackWaiting,
   FallbackFail,
 ) {
+  const Fallback = loaderOptions.delay
+    ? getDelayedFallback(FallbackWaiting, loaderOptions.delay)
+    : FallbackWaiting;
+
+  const LazyComponent = getLazyComponent(
+    loadComponent,
+    loaderOptions,
+    FallbackFail,
+  );
+
   return function AsyncComponent(props) {
-    const Fallback = loaderOptions.delay
-      ? getDelayedFallback(FallbackWaiting, loaderOptions.delay)
-      : FallbackWaiting;
-
-    const LazyComponent = getLazyComponent(
-      loadComponent,
-      loaderOptions,
-      FallbackFail,
-    );
-
     return (
       <Suspense fallback={<Fallback />}>
         <LazyComponent {...props} />
