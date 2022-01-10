@@ -1,5 +1,18 @@
 ### Releases
 
+## v2.0.0
+###### *Jan 10, 2022*
+
+- Upgrade from MUI v4 to v5.
+  - Changes to all styles.js files
+  - Changes to Theme
+  - Changes to all Component.js files using @material-ui or styles.js
+  - Moved JSS to tss-react
+- package.json: updated all packages to latest version
+- sections:
+  - *New* BottomNavigation
+    - Layout:Component.js will only display BottomNavigation isMobile
+
 ## v1.1.0
 ###### *Dec 6, 2020*
 
