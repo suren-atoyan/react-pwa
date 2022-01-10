@@ -19,7 +19,7 @@ By the same philosophy, there are other routines above the basic configuration, 
 
 * [CRA](#cra)
 * [React Router](#react-router)
-* [Material UI](#material-ui)
+* [Material UI](#mui)
 * [Store](#store)
 * [Theme](#theme)
 * [Notifications](#notifications)
@@ -39,7 +39,7 @@ The latest version of `react-router-dom` is integrated. Routes are defined in [/
 
 #### Material UI
 
-The latest version of [Material-UI](https://material-ui.com/) is integrated. The whole layout of the application is made by `Material-UI` components. In the demonstrated components/sections you can notice how MUI components can be customized. The styling system is also inherited from MUI.
+The latest version of [MUI](https://mui.com/) is integrated. The whole layout of the application is made by `MUI` components. In the demonstrated components/sections you can notice how MUI components can be customized. The styling system is also inherited from MUI.
 
 #### Store
 
