@@ -1,12 +1,14 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles(() => ({
-  root: {
-    display: 'flex',
-    'justify-content': 'center',
-    'align-items': 'center',
-    height: '100%',
-  },
-}));
+const useStyles = makeStyles()(() => {
+  return {
+    root: {
+      display: 'flex',
+      'justifyContent': 'center',
+      'alignItems': 'center',
+      height: '100%',
+    },
+  };
+});
 
 export default useStyles;

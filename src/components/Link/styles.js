@@ -1,10 +1,12 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles(() => ({
-  root: {
-    'text-decoration': 'none',
-    color: 'inherit',
-  },
-}));
+const useStyles = makeStyles()(() => {
+  return {
+    root: {
+      'textDecoration': 'none',
+      color: 'inherit',
+    },
+  };
+});
 
 export default useStyles;

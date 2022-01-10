@@ -6,7 +6,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import useStyles from './styles';
 
 function Link({ className, ...props }) {
-  const classes = useStyles();
+  const classes = useStyles().classes;
 
   const Component = props.href
     ? ({ children, ...props }) => <a {...props}>{children}</a>

@@ -1,14 +1,13 @@
 import React from 'react';
 
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
+import { Container, Typography } from '@mui/material';
 
 import Meta from 'components/Meta';
 
 import useStyles from './styles';
 
 function Page2() {
-  const classes = useStyles();
+  const classes = useStyles().classes;
 
   return (
     <>

@@ -1,15 +1,10 @@
 import React from 'react';
 
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import List from '@material-ui/core/List';
-import MenuItem from '@material-ui/core/MenuItem';
+import { SwipeableDrawer, ListItemIcon, ListItemText, List, MenuItem } from '@mui/material';
 
 import { Link as RouterLink } from 'react-router-dom';
 
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from "tss-react/mui";
 
 import {
   FaHome as WelcomeIcon,
@@ -23,13 +18,18 @@ import isMobile from 'utils/isMobile';
 
 import useStyles from './styles';
 
-const StyledMenuItem = withStyles({ root: { width: '100%' } })(props => <MenuItem {...props} />);
+const StyledMenuItem = withStyles(
+  (props => <MenuItem {...props} />),
+  {
+    root: { width: '100%' }
+  },
+);
 
 function Menu({ isOpen, onClose, onOpen }) {
   const classes = useStyles({
     isOpen,
     isMobile,
-  });
+  }).classes;
  
   return (
     <SwipeableDrawer
@@ -48,19 +48,19 @@ function Menu({ isOpen, onClose, onOpen }) {
           </ListItemIcon>
           <ListItemText primary="Welcome" />
         </StyledMenuItem>
-        <StyledMenuItem onClick={onClose} component={RouterLink} to="/page-1">
+        <StyledMenuItem onClick={onClose} component={RouterLink} to="/Page-1">
           <ListItemIcon>
             <JSIcon />
           </ListItemIcon>
           <ListItemText primary="Page 1" />
         </StyledMenuItem>
-        <StyledMenuItem onClick={onClose} component={RouterLink} to="/page-2">
+        <StyledMenuItem onClick={onClose} component={RouterLink} to="/Page-2">
           <ListItemIcon>
             <ReactIcon />
           </ListItemIcon>
           <ListItemText primary="Page 2" />
         </StyledMenuItem>
-        <StyledMenuItem onClick={onClose} component={RouterLink} to="/page-3">
+        <StyledMenuItem onClick={onClose} component={RouterLink} to="/Page-3">
           <ListItemIcon>
             <GithubIcon />
           </ListItemIcon>

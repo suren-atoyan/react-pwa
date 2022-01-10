@@ -1,34 +1,38 @@
 {
   "name": "react-pwa",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.10.2",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "dayjs": "^1.8.28",
-    "is-mobile": "^2.2.1",
-    "notistack": "^0.9.17",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-error-boundary": "^2.2.2",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@mui/material": "^5.2.7",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "dayjs": "^1.10.7",
+    "is-mobile": "^3.0.0",
+    "notistack": "^2.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-error-boundary": "^3.1.4",
     "react-helmet": "^6.1.0",
-    "react-icons": "^3.10.0",
+    "react-icons": "^4.3.1",
+    "react-ios-pwa-prompt": "^1.8.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "recoil": "^0.1.2",
-    "state-local": "^1.0.1",
-    "uuid": "^8.2.0"
+    "react-scripts": "^5.0.0",
+    "recoil": "^0.5.2",
+    "state-local": "^1.0.6",
+    "tss-react": "^3.3.1",
+    "uuid": "^8.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "start": "set HTTPS=true && react-scripts start",
+    "build": "react-scripts build",
     "start-prod": "yarn build && yarn serve",
     "serve": "node hoster/server.js",
     "lint": "npx eslint src",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -51,14 +55,17 @@
     }
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
+    "@babel/eslint-parser": "^7.16.5",
+    "@testing-library/dom": "^8.11.1",
+    "@testing-library/user-event": "^13.5.0",
     "eslint-config-react-app": "^5.2.1",
-    "eslint-plugin-flowtype": "^5.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^4.1.0",
-    "express": "^4.17.1",
-    "husky": "^4.3.0"
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "express": "^4.17.2",
+    "husky": "^7.0.4",
+    "jest-watch-typeahead": "^0.6.5"
   }
 }

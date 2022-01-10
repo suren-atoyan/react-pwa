@@ -34,14 +34,14 @@ const copyright = {
 const themes = {
   light: {
     palette: {
-      type: 'light',
+      mode: 'light',
       background: {
         default: '#fafafa',
         paper: '#fff',
       },
       primary: {
         light: '#7986cb',
-        main: '#3f51b5',
+        main: '#111',
         dark: '#303f9f',
         contrastText: '#fff',
       },
@@ -50,14 +50,14 @@ const themes = {
 
   dark: {
     palette: {
-      type: 'dark',
+      mode: 'dark',
       background: {
         default: '#111',
         paper: '#171717',
       },
       primary: {
         light: '#7986cb',
-        main: '#333',
+        main: '#fff',
         dark: '#303f9f',
         contrastText: '#fff',
       },
@@ -90,7 +90,7 @@ const loader = {
   minimumLoading: 700, // but if it appears, it will stay for at least 700 milliseconds
 };
 
-const giphy404 = 'https://giphy.com/embed/8L0Pky6C83SzkzU55a';
+const giphy404 = 'https://giphy.com/embed/14uQ3cOFteDaU';
 
 export {
   messages,

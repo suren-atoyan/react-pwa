@@ -1,10 +1,12 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles(theme => ({
-  list: {
-    width: 250,
-  },
-  toolbar: theme.mixins.toolbar,
-}));
+const useStyles = makeStyles()((theme) => {
+  return {
+    list: {
+      width: 250,
+    },
+    toolbar: theme.mixins.toolbar,
+  };
+});
 
 export default useStyles;

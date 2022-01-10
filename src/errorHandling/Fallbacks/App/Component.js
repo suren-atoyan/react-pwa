@@ -1,8 +1,6 @@
 import React from 'react';
 
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import { Paper, Typography, Button } from '@mui/material';
 
 import { FaRedo as ResetIcon } from 'react-icons/fa';
 
@@ -12,8 +10,7 @@ import { messages, email } from 'config';
 import useStyles from './styles';
 
 function AppErrorBoundaryFallback() {
-  const classes = useStyles();
-
+  const classes = useStyles().classes;
   return (
     <div className={classes.wrapper}>
       <Paper className={classes.paper}>

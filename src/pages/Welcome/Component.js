@@ -1,8 +1,6 @@
 import React from 'react';
 
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { Container, Typography, useMediaQuery} from '@mui/material';
 
 import { FaReact as ReactIcon } from 'react-icons/fa';
 
@@ -13,13 +11,13 @@ import useStyles from './styles';
 
 function Welcome() {
   const matchSmallScreen = useMediaQuery('(max-width: 600px)');
-  const classes = useStyles();
+  const classes = useStyles().classes;
 
   return (
     <>
       <Meta
         title="Welcome"
-        description="Welcome to React PWA"
+        description="Welcome to Utility Marker Scanner"
       />
       <Container maxWidth="sm" className="full-height">
         <Fb justifyCenter alignCenter className={classes.wrapper}>
@@ -28,7 +26,7 @@ function Welcome() {
             variant={matchSmallScreen ? 'h4' : 'h3'}
             className={classes.title}
           >
-            React PWA
+            Welcome
           </Typography>
         </Fb>
       </Container>

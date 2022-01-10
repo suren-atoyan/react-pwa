@@ -1,13 +1,12 @@
 import React from 'react';
 
-import CircularProgress from '@material-ui/core/CircularProgress';
-import Paper from '@material-ui/core/Paper';
+import { CircularProgress, Paper } from '@mui/material';
 import clsx from 'clsx';
 
 import useStyles from './styles';
 
 function Loading({ size, withoutBackground, position = 'absolute' }) {
-  const classes = useStyles({ position });
+  const classes = useStyles({ position }).classes;
 
   return (
     <Paper

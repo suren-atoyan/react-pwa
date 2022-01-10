@@ -4,12 +4,12 @@ import React, { forwardRef } from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-import Box from '@material-ui/core/Box';
+import Box from '@mui/material/Box';
 
 import useFlexStyles from './styles';
 
 const Fb = forwardRef(function Fb(props, ref) {
-  const flexClasses = useFlexStyles();
+  const flexClasses = useFlexStyles().classes;
   const {
     row,
     wrap,

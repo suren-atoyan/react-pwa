@@ -1,9 +1,11 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles(() => ({
-  copyright: {
-    'user-select': 'none',
-  },
-}));
+const useStyles = makeStyles()(() => {
+  return {
+    copyright: {
+      'userSelect': 'none',
+    },
+  };
+});
 
 export default useStyles;

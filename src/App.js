@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { RecoilRoot } from 'recoil';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { CssBaseline } from '@mui/material';
+import { StyledEngineProvider } from '@mui/material/styles';
 
 import withErrorHandler from 'errorHandling';
 import { App as ErrorBoundaryFallback } from 'errorHandling/Fallbacks';
@@ -12,15 +13,18 @@ import { ThemeProvider } from 'theme';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
+
 function App() {
   return (
     <RecoilRoot>
       <ThemeProvider>
         <Fb>
           <CssBaseline />
-          <Router>
-            <Layout />
-          </Router>
+          <StyledEngineProvider injectFirst>
+            <Router>
+              <Layout />
+            </Router>
+          </StyledEngineProvider>
         </Fb>
       </ThemeProvider>
     </RecoilRoot>

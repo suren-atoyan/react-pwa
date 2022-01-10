@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
+import { Typography, Container } from '@mui/material';
 
 import Divider from 'components/Divider';
 import Fb from 'components/Fb';
@@ -10,7 +9,7 @@ import { giphy404, messages } from 'config';
 import useStyles from './styles';
 
 function NotFound() {
-  const classes = useStyles();
+  const classes = useStyles().classes;
 
   return (
     <Container

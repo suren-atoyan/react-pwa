@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { ThemeProvider } from '@material-ui/styles';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import useTheme from 'store/theme';
 
@@ -11,7 +10,7 @@ function CustomThemeProvider({ children }) {
   const [theme] = useTheme();
 
   return (
-    <ThemeProvider theme={createMuiTheme(themes[theme])}>
+    <ThemeProvider theme={createTheme(themes[theme])}>
       {children}
     </ThemeProvider>
   );

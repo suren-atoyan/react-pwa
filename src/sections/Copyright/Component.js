@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import { Typography, Link } from '@mui/material';
 
 import Fb from 'components/Fb';
 import { copyright, domain } from 'config';
@@ -9,7 +8,7 @@ import { copyright, domain } from 'config';
 import useStyles from './styles';
 
 function Copyright() {
-  const classes = useStyles();
+  const classes = useStyles().classes;
 
   return (
     <Fb justifyCenter pt={2} pb={2}>

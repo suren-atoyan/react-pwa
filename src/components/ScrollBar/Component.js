@@ -6,7 +6,7 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import useStyles from './styles';
 
 function ScrollBar({ className, ...props }) {
-  const classes = useStyles();
+  const classes = useStyles().classes;
 
   return (
     <Scrollbars

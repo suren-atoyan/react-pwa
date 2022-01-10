@@ -1,12 +1,16 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles } from 'tss-react/mui';
 
-export default makeStyles(theme => ({
-  horizontal: {
-    'margin-top': theme.spacing(2),
-    'margin-bottom': theme.spacing(2),
-  },
-  vertical: {
-    'margin-left': theme.spacing(1),
-    'margin-right': theme.spacing(1),
-  },
-}));
+const useStyles = makeStyles()((theme) => {
+  return {
+    horizontal: {
+      'marginTop': theme.spacing(2),
+      'marginBottom': theme.spacing(2),
+    },
+    vertical: {
+      'marginLeft': theme.spacing(1),
+      'marginRight': theme.spacing(1),
+    },
+  };
+});
+
+export default useStyles;

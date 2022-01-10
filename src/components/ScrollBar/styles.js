@@ -1,8 +1,10 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles } from 'tss-react/mui';
 
-export default makeStyles(() => ({
-  root: {
-    height: '100%',
-    width: '100%',
-  },
-}));
+export default makeStyles()(() => {
+  return {
+    root: {
+      height: '100%',
+      width: '100%',
+    },
+  };
+});
