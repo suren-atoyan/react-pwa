@@ -22,6 +22,7 @@ function SW() {
   const close = useCallback(() => {
     setOfflineReady(false);
     setNeedRefresh(false);
+
     if (notificationKey.current) {
       notificationsActions.close(notificationKey.current);
     }
@@ -38,7 +39,7 @@ function SW() {
       });
     } else if (needRefresh) {
       notificationKey.current = notificationsActions.push({
-        message: 'New content available, click on reload button to update.',
+        message: 'New content is available, click on reload button to update.',
         options: {
           variant: 'warning',
           persist: true,

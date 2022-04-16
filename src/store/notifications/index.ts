@@ -20,6 +20,7 @@ function useNotifications(): [Notification[], Actions] {
       // TODO (Suren): use uuid
       const id = Math.random().toString();
       setNotifications((notifications): Notification[] => [
+        // TODO (Suren): use immer
         ...notifications,
         {
           ...notification,
