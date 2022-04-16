@@ -49,8 +49,8 @@ const loader = {
 };
 
 const defaultMetaTags = {
-  image: '/images/cover.png',
-  description: 'Starter kit for react application',
+  image: '/cover.png',
+  description: 'Starter kit for modern web applications',
 };
 const giphy404 = 'https://giphy.com/embed/xTiN0L7EW5trfOvEk0';
 
