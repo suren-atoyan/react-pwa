@@ -30,7 +30,13 @@ function Header() {
   function showNotification() {
     notificationsActions.push({
       options: {
-        // show fully customized notification
+        // Show fully customized notification
+        // Usually, to show a notification, you'll use something like this:
+        // notificationsActions.push({ message: ... })
+        // `message` accepts string as well as ReactNode
+        // But you also can use:
+        // notificationsActions.push({ options: { content: ... } })
+        // to show fully customized notification
         content: (
           <Alert severity="info">
             <AlertTitle>Notification demo (random IT jokes :))</AlertTitle>
