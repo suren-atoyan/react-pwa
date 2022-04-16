@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { SnackbarProvider } from 'notistack';
 
 import { notifications } from '@/config';

@@ -1,4 +1,4 @@
-import React, { FC, Suspense, lazy, useEffect, useState } from 'react';
+import { FC, Suspense, lazy, useEffect, useState } from 'react';
 
 import sleep from '@/utils/sleep';
 
