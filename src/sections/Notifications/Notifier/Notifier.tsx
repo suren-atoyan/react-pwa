@@ -4,6 +4,9 @@ import { SnackbarKey, useSnackbar } from 'notistack';
 
 import useNotifications from '@/store/notifications';
 
+// NOTE: this is a workaround for a missing feature in notistack
+// This will be removed once the new version of notistack is released
+// But it works great for now :)
 function Notifier() {
   const [notifications, actions] = useNotifications();
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
