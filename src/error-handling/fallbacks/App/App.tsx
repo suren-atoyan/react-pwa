@@ -20,7 +20,6 @@ function AppErrorBoundaryFallback() {
           <Button
             startIcon={<EmailIcon />}
             variant="outlined"
-            disableRipple
             target="_blank"
             rel="noreferrer"
             href={`mailto: ${email}`}
@@ -29,13 +28,7 @@ function AppErrorBoundaryFallback() {
             {messages.app.crash.options.email}
           </Button>
           <Typography component="h6">or</Typography>
-          <Button
-            startIcon={<RestartIcon />}
-            sx={{ mt: 3 }}
-            variant="outlined"
-            disableRipple
-            onClick={resetApp}
-          >
+          <Button startIcon={<RestartIcon />} sx={{ mt: 3 }} variant="outlined" onClick={resetApp}>
             {messages.app.crash.options.reset}
           </Button>
         </Paper>
