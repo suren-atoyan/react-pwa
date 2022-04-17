@@ -4,7 +4,7 @@ import { styled } from '@mui/system';
 const HotKeysButton = styled(Button)(({ theme }) => ({
   height: 'fit-content',
   alignSelf: 'center',
-  marginRight: 2,
+  marginRight: theme.spacing(1),
   borderColor: theme.palette.text.disabled,
   '&:hover': {
     borderColor: theme.palette.text.disabled,
