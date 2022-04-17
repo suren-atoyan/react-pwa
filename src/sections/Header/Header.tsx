@@ -7,7 +7,6 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
-import Fade from '@mui/material/Fade';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
@@ -19,6 +18,7 @@ import useNotifications from '@/store/notifications';
 import useSidebar from '@/store/sidebar';
 import useTheme from '@/store/theme';
 
+import { HotKeysButton } from './styled';
 import { getRandomJoke } from './utils';
 
 function Header() {
@@ -67,25 +67,16 @@ function Header() {
             </Button>
           </FlexBox>
           <FlexBox>
-            <Fade in timeout={3000}>
-              <FlexBox>
-                <Button
-                  size="small"
-                  variant="outlined"
-                  onClick={hotKeysDialogActions.open}
-                  sx={{
-                    height: 'fit-content',
-                    alignSelf: 'center',
-                    mr: 2,
-                    opacity: 0.3,
-                    borderColor: (theme) => theme.palette.text.disabled,
-                    color: (theme) => theme.palette.text.disabled,
-                  }}
-                >
-                  alt + /
-                </Button>
-              </FlexBox>
-            </Fade>
+            <FlexBox>
+              <HotKeysButton
+                size="small"
+                variant="outlined"
+                aria-label="open hotkeys dialog"
+                onClick={hotKeysDialogActions.open}
+              >
+                alt + /
+              </HotKeysButton>
+            </FlexBox>
             <Divider orientation="vertical" flexItem />
             <Tooltip title="It's open source" arrow>
               <IconButton color="info" size="large" component="a" href={repository} target="_blank">
