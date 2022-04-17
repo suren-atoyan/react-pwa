@@ -9,11 +9,6 @@ const sharedTheme = {
       default: '#fafafa',
       paper: '#fff',
     },
-    primary: {
-      light: '#7986cb',
-      dark: '#303f9f',
-      contrastText: '#fff',
-    },
   },
   components: {
     MuiButtonBase: {
