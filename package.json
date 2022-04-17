@@ -1,7 +1,17 @@
 {
-  "name": "vite-exp",
-  "private": true,
-  "version": "0.0.0",
+  "name": "react-pwa",
+  "version": "2.0.0",
+  "description": "Starter kit for modern web applications",
+  "homepage": "https://react-pwa.surenatoyan.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suren-atoyan/react-pwa.git"
+  },
+  "bugs": {
+    "url": "https://github.com/suren-atoyan/react-pwa/issues",
+    "email": "contact@surenatoyan.com"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -53,5 +63,16 @@
     "src/**/*.{js,jsx,ts,tsx,json}": [
       "eslint --max-warnings=0"
     ]
-  }
+  },
+  "author": {
+    "name": "Suren Atoyan",
+    "email": "contact@surenatoyan.com",
+    "url": "http://surenatoyan.com/"
+  },
+  "keywords": [
+    "react",
+    "pwa",
+    "stater-kit",
+    "vite"
+  ]
 }
