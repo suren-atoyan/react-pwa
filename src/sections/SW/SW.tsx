@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 
+import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 
 import type { SnackbarKey } from 'notistack';
@@ -31,10 +32,9 @@ function SW() {
   useEffect(() => {
     if (offlineReady) {
       notificationsActions.push({
-        message: 'App is ready to work offline.',
         options: {
-          variant: 'success',
           autoHideDuration: 4500,
+          content: <Alert severity="success">App is ready to work offline.</Alert>,
         },
       });
     } else if (needRefresh) {
