@@ -44,7 +44,7 @@ Almost all projects need to have a router, a UI framework, store integration, th
 
 #### Vite
 
-[Vite](https://vitejs.dev/) is a blazingly fast build tool based on [native ES modules](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/), [rollup](https://rollupjs.org/guide/en/), and [esbuild](https://esbuild.github.io/). `React-PWA` v1 was based on [CRA](https://reactjs.org/docs/create-a-new-react-app.html). We still love `CRA` and really think it's a great tool, but `Vite` provides a much better developer experience and it's unconditionally faster (maybe, we will also create a CRA version of `React-PWA` v2 in near future).
+[Vite](https://vitejs.dev/) is a blazingly fast build tool based on [native ES modules](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/), [rollup](https://rollupjs.org/guide/en/), and [esbuild](https://esbuild.github.io/). `React-PWA` v1 was based on [CRA](https://reactjs.org/docs/create-a-new-react-app.html). We still love `CRA` and really think it's a great tool, but `Vite` provides a much better developer experience and it's unconditionally faster (maybe, we will also create a `CRA` version of `React-PWA` v2 in near future).
 
 #### React
 
@@ -54,7 +54,7 @@ The latest version (v18) is used here. All dependencies support [React](https://
 
 "Not using [TypeScript](https://www.typescriptlang.org/) is like driving without a seatbelt" - [Matt Howard](https://twitter.com/MattDotHow).
 
-For those who do not familiar with `TypeScript` - don't worry, you will love it, as we all did. `TypeScript` is a superset of `JavaScript`; it should be very easy to work with if you know `JavaScript`.
+For those who are not familiar with `TypeScript` - don't worry, you will love it, as we all did. `TypeScript` is a superset of `JavaScript`; it should be very easy to work with if you know `JavaScript`.
 
 #### Router
 
@@ -79,7 +79,7 @@ function MyCoolComponent() {
   const [notifications, actions] = useNotification();
 
   function showNotification() {
-    actions.push({ message: 'Բարև կարմիր արև' });
+    actions.push({ message: 'Բարև, կարմի՛ր արև' });
   }
 
   return (
@@ -103,7 +103,7 @@ function MyCoolComponent() {
   // check the current theme mode
   console.log(theme);
 
-  // if you want to change the theme, call appropriate action
+  // if you want to change the theme, call an appropriate action
   function toggleTheme() {
     actions.toggle();
   }
@@ -135,7 +135,7 @@ Also, you can redefine the theme in the theme configuration file. Check the [src
 
 #### Base file/folder structure
 
-Here how looks the base file/folder structure:
+Here how the base file/folder structure looks like:
 
 <img src="./public/file-folder-structure.png" title="file folder structure">
 
@@ -151,7 +151,7 @@ Your users will also be informed about the new version of your app:
 
 #### Performance
 
-After all these integrations the biggest bundle size is `~79KB`. It means even the first load will be pretty fast (in my case it's `1.1s`), further loads (already cached by `service worker` and `workbox`) and will take `~0.25s`.
+After all these integrations the biggest bundle size is `~79KB`. It means even the first load will be pretty fast (in my case it's `1.1s`), further loads (already cached by `service worker` and `workbox`) will take `~0.25s`.
 
 <img src="./public/bundle.png" title="bundle">
 
@@ -161,7 +161,7 @@ NOTE: The performance is not 100 because it's running on demo server.
 
 #### Hotkeys
 
-A basic implementation of hotkeys is demonstrated. Check the [src/sections/HotKeys](./src/sections/HotKeys/HotKeys.tsx) for more information.
+A basic implementation of hotkeys is demonstrated here. Check the [src/sections/HotKeys](./src/sections/HotKeys/HotKeys.tsx) for more information.
 
 Currently, you can use the following hotkeys:
 
@@ -175,7 +175,7 @@ Nobody likes white screens and crashes without any notes. In [src/error-handling
 
 #### Pages
 
-From a layout point of view the application is consists of 3 main parts:
+From a layout point of view the application consists of 3 main parts:
 
 - Header
 - Sidebar
@@ -207,7 +207,7 @@ The last one is a router-based switcher. All routes are defined in [src/routes](
 
   You can use it to lint your commit messages, run tests, lint code, etc.
 
-  Currently, only `pre-commit` hook is setup. Every time you try to do a commit it will run `prettier` and `eslint` to be sure if everything is according to the rules.
+  Currently, only `pre-commit` hook is set up. Every time you try to do a commit it will run `prettier` and `eslint` to be sure that everything is according to the rules.
 
 - [lint-staged](https://github.com/okonet/lint-staged)
 
@@ -235,7 +235,7 @@ The last one is a router-based switcher. All routes are defined in [src/routes](
 
 ## Usage
 
-You can use this template just by pressing `Use this temaplte`.
+You can use this template by just pressing `Use this temaplte`.
 
 <img src="./public/use-template.png" width="300" title="Use this temaplte">
 
