@@ -9,11 +9,11 @@
 ## Synopsis
 
 This project (a GitHub template) is an opinionated setup for modern web applications.
-It's a combination of essential (and minimal) libraries/components/utils/etc., which developers usually need during the process of making React application.
+It's a combination of essential (and minimal) libraries/components/utils/etc., which developers usually need during the process of making modern React applications.
 
 ## Motivation
 
-Almost all projects need to have a router, a UI-framework, store integration, theming, error handling, base file/folder structure, a builder, some developer tools (eslint, prettier, etc) and many more. In this starter kit we tried to put together the best options available from the above mentioned fields. Out of the box it provides a modern production ready setup created by developers for developers 💚
+Almost all projects need to have a router, a UI framework, store integration, theming, error handling, base file/folder structure, a builder, some developer tools (eslint, prettier, etc), and many more. In this starter kit, we tried to put together the best options available from the above-mentioned fields. Out of the box, it provides a modern production-ready setup created by developers for developers 💚
 
 ## Features
 
@@ -29,30 +29,32 @@ Almost all projects need to have a router, a UI-framework, store integration, th
   - `Recoil`
 - ✅ [Notifications](#notifications)
 - ✅ [Theme](#theme)
-- ✅ [Base file/folder structure](#base-file-folder-structure)
+- ✅ [Base file/folder structure](#base-filefolder-structure)
 - ✅ [PWA](#pwa)
-- ✅ [Performance](#Performance)
-- ✅ [Hot Keys](#hot-keys)
+- ✅ [Performance](#performance)
+- ✅ [Hotkeys](#hotkeys)
 - ✅ [Error Handling](#error-handling)
 - ✅ [Pages](#pages)
-- ✅ [Eslint](#eslint)
-- ✅ [Prettier](#prettier)
-- ✅ [lint-staged](#lint-staged)
-- ✅ [https localhost](#https-localhost)
+- ✅ [Dev tools](#dev-tools)
+  - ✅ eslint
+  - ✅ prettier
+  - ✅ husky
+  - ✅ lint-staged
+  - ✅ https localhost
 
 #### Vite
 
-[Vite](https://vitejs.dev/) is a blazingly fast build tool based on native ES modules, rollup and esbuild. `React-PWA` v1 was based on [CRA](https://reactjs.org/docs/create-a-new-react-app.html). We still love `CRA` and really think it's a great tool, but `Vite` provides a much better developer experience and it's unconditionally faster (maybe, we will also create a CRA version of `React-PWA` v2 in the future).
+[Vite](https://vitejs.dev/) is a blazingly fast build tool based on [native ES modules](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/), [rollup](https://rollupjs.org/guide/en/), and [esbuild](https://esbuild.github.io/). `React-PWA` v1 was based on [CRA](https://reactjs.org/docs/create-a-new-react-app.html). We still love `CRA` and really think it's a great tool, but `Vite` provides a much better developer experience and it's unconditionally faster (maybe, we will also create a CRA version of `React-PWA` v2 in near future).
 
 #### React
 
-The latest version (v18) is used here. All dependencies support `React` v18 and the `v2` is refactored acording to the latest changes and requirements of `React` v18.
+The latest version (v18) is used here. All dependencies support [React](https://reactjs.org/) v18 and the `v2` is refactored according to the latest changes and requirements of `React` v18.
 
 #### TypeScript
 
-"Not using `TypeScript` is like driving without a seatbelt" - [Matt Howard](https://twitter.com/MattDotHow).
+"Not using [TypeScript](https://www.typescriptlang.org/) is like driving without a seatbelt" - [Matt Howard](https://twitter.com/MattDotHow).
 
-For those who do not familiar with TypeScript - do not worry, you will love it as we all did. TypeScript is a superset of JavaScript. It should be very easy to work with it if you know JavaScript.
+For those who do not familiar with `TypeScript` - don't worry, you will love it, as we all did. `TypeScript` is a superset of `JavaScript`; it should be very easy to work with if you know `JavaScript`.
 
 #### Router
 
@@ -60,11 +62,11 @@ For those who do not familiar with TypeScript - do not worry, you will love it a
 
 #### UI-framework
 
-[MUI](https://mui.com/) v5 is used here. `MUI` is fully-loaded component library, super customizable and easy to use.
+[MUI](https://mui.com/) v5 is used here. `MUI` is a fully-loaded component library, super customizable, and easy to use.
 
 #### Store
 
-As a store managment tool [Recoil](https://recoiljs.org/) is used. Check the [src/store](./src/store) folder for more information.
+As a store management tool [Recoil](https://recoiljs.org/) is used. Check the [src/store](./src/store) folder for more information.
 
 #### Notifications
 
@@ -141,7 +143,7 @@ TBD: more information about the file/folder structure will be added soon.
 
 #### PWA
 
-Out of the box it's a `Progressive Web Application`. It can be installed on mobile and desktop devices 🙂, it can work offile and many more. Check more info about PWAs [here](https://web.dev/progressive-web-apps/)
+Out of the box, it's a `Progressive Web Application`. It can be installed on mobile and desktop devices 🙂, it can work offline, and many more. Check more about PWAs [here](https://web.dev/progressive-web-apps/)
 
 Your users will also be informed about the new version of your app:
 
@@ -149,7 +151,7 @@ Your users will also be informed about the new version of your app:
 
 #### Performance
 
-After all these integrations the biggest bundle size is `~79KB`. It means even first load will be pretty fast (in my case it's `1.1s`), further loads (already cached by `service worker` and `workbox`) and will take `~0.25s`.
+After all these integrations the biggest bundle size is `~79KB`. It means even the first load will be pretty fast (in my case it's `1.1s`), further loads (already cached by `service worker` and `workbox`) and will take `~0.25s`.
 
 <img src="./public/bundle.png" title="bundle">
 
@@ -157,23 +159,79 @@ After all these integrations the biggest bundle size is `~79KB`. It means even f
 
 NOTE: The performance is not 100 because it's running on demo server.
 
-#### Hot Keys
+#### Hotkeys
 
-A basic implementation of hot keys is demonstrated. Check the [src/sections/HotKeys](./src/sections/HotKeys/HotKeys.tsx) for more information.
+A basic implementation of hotkeys is demonstrated. Check the [src/sections/HotKeys](./src/sections/HotKeys/HotKeys.tsx) for more information.
 
-Currently you can use the following hot keys:
+Currently, you can use the following hotkeys:
 
 `Alt+s` - to toggle the theme mode
 `Alt+t` - to toggle the sidebar
-`Alt+/` - to open the hot keys dialog
+`Alt+/` - to open the hotkeys dialog
 
 #### Error Handling
 
-Nobody likes white screens and crashes without any notes. In [src/error-handling](./src/error-handling) you can find the error handling implementation. Here you can find `withErrorHandler` high order component. You can wrap any component by this HOC and it will catch all errors and show a default or yoru custom fallback. Currently, the main APP component is wrapped by `withErrorHandler` HOC.
+Nobody likes white screens and crashes without any notes. In [src/error-handling](./src/error-handling) you can find the error handling implementation. Here you can find `withErrorHandler` high order component. You can wrap any component by this HOC and it will catch all errors and show a default or your custom fallback. Currently, the main APP component is wrapped by `withErrorHandler` HOC.
 
 #### Pages
 
-TBD
+From a layout point of view the application is consists of 3 main parts:
+
+- Header
+- Sidebar
+- Pages
+
+The last one is a router-based switcher. All routes are defined in [src/routes](./src/routes/index.ts). By default, pages are being loaded asynchronously via [asyncComponentLoader](src/utils/loader/loader.tsx). You can use it to asynchronously load any `React` component you want. It uses `React.Suspense` and `React.lazy` with some magic 🧙‍♂️
+
+# Dev tools
+
+- [eslint](https://eslint.org/)
+
+  The latest version of `eslint` with the latest recommended collection of `eslint` rules is available out of the box. It contains:
+
+  - eslint:recommended
+  - react/recommended
+  - @typescript-eslint/recommended
+
+  Check the [.eslintrc.json](./eslintrc.json) file for more information.
+
+- [prettier](https://prettier.io/)
+
+  Stop fighting about styling in code reviews; save your time and energy - configure it once and let the machine format/correct your code.
+
+  Check the [.prettierrc.json](./prettierrc.json) file for more information.
+
+  There is an additional configuration for your import statements. They will be automatically ordered and grouped by the given rules (check the `.prettierrc.js`) - one more topic for debates in code reviews :)
+
+- [husky](https://typicode.github.io/husky/#/)
+
+  You can use it to lint your commit messages, run tests, lint code, etc.
+
+  Currently, only `pre-commit` hook is setup. Every time you try to do a commit it will run `prettier` and `eslint` to be sure if everything is according to the rules.
+
+- [lint-staged](https://github.com/okonet/lint-staged)
+
+  `lint-staged` helps to run `eslint` and `prettier` only on staged files - it makes the linting process super fast and sensible.
+
+- [https localhost](https://github.com/daquinoaldo/https-localhost)
+
+  It's a simple way to run your application on localhost with https.
+
+  Just run:
+
+  ```bash
+  npm run https-preview # or yarn https-preview
+  ```
+
+  after:
+
+  ```bash
+  npm run build # or yarn build
+  ```
+
+  and check `https://localhost` in your browser.
+
+  NOTE: first time it will ask you about installing localhost certificate. For more info check [this](https://github.com/daquinoaldo/https-localhost#root-required)
 
 ## Usage
 
