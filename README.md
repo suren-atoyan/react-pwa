@@ -1,5 +1,5 @@
 <a href="http://react-pwa.surenatoyan.com/" target="_blank" rel="noreferrer">
- <img src="./public/cover.png" width="600" title="Base App">
+ <img src="./public/cover.png" title="Base App">
 </a>
 
 # React-PWA - `v2` is here 🚀🎉⚡️
