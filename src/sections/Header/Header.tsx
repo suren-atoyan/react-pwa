@@ -68,14 +68,16 @@ function Header() {
           </FlexBox>
           <FlexBox>
             <FlexBox>
-              <HotKeysButton
-                size="small"
-                variant="outlined"
-                aria-label="open hotkeys dialog"
-                onClick={hotKeysDialogActions.open}
-              >
-                alt + /
-              </HotKeysButton>
+              <Tooltip title="Hot keys" arrow>
+                <HotKeysButton
+                  size="small"
+                  variant="outlined"
+                  aria-label="open hotkeys dialog"
+                  onClick={hotKeysDialogActions.open}
+                >
+                  alt + /
+                </HotKeysButton>
+              </Tooltip>
             </FlexBox>
             <Divider orientation="vertical" flexItem />
             <Tooltip title="It's open source" arrow>
