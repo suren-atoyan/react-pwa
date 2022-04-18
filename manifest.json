@@ -1,6 +1,6 @@
 {
   "name": "React PWA",
-  "short_name": "React PWA",
+  "short_name": "reactpwa",
   "description": "Starter kit for modern web applications",
   "theme_color": "#ffffff",
   "icons": [

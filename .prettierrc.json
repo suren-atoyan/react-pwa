@@ -3,8 +3,8 @@
   "useTabs": false,
   "semi": true,
   "singleQuote": true,
-  "trailingComma": "all",
   "printWidth": 100,
+  "trailingComma": "all",
   "importOrder": [
     "^(^react$|@react|react|^recoil$)",
     "^@mui/(.*)$",
