@@ -54,7 +54,7 @@
     "prettier": "2.6.1",
     "typescript": "^4.5.4",
     "vite": "^2.9.1",
-    "vite-plugin-pwa": "^0.11.13"
+    "vite-plugin-pwa": "^0.11.3"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
