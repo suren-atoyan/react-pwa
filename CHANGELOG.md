@@ -1,5 +1,13 @@
 ### Releases
 
+## v2.0.1
+
+###### _Apr 18, 2022_
+
+- packages: update `vite-plugin-pwa` to v0.11.3
+- hotkeys: fix hotkeys' handlers
+- dev-tool: add welcome message in the console
+
 ## v2.0.0
 
 ###### _Apr 18, 2022_
