@@ -5,11 +5,11 @@ function getOrientation() {
 }
 
 function useOrientation() {
-  const [isPortrait, sePIsportrait] = useState(getOrientation());
+  const [isPortrait, setIsPortrait] = useState(getOrientation());
 
   useEffect(() => {
     function handleResize() {
-      sePIsportrait(getOrientation());
+      setIsPortrait(getOrientation());
     }
 
     window.addEventListener('resize', handleResize);
