@@ -29,8 +29,6 @@ const messages = {
 
 const dateFormat = 'MMMM DD, YYYY';
 
-const cancelationMessage = 'operation is manually canceled';
-
 const notifications: Notifications = {
   options: {
     anchorOrigin: {
@@ -57,7 +55,6 @@ const giphy404 = 'https://giphy.com/embed/xTiN0L7EW5trfOvEk0';
 export {
   loader,
   notifications,
-  cancelationMessage,
   dateFormat,
   messages,
   repository,
