@@ -30,13 +30,13 @@ function HotKeys() {
       <DialogContent>
         <FlexBox alignItems="center" height={50} justifyContent="space-between">
           <Typography>Toggle Theme</Typography>
-          <Button color="warning" variant="outlined" onClick={sidebarActions.toggle}>
+          <Button color="warning" variant="outlined" onClick={themeActions.toggle}>
             alt + t
           </Button>
         </FlexBox>
         <FlexBox alignItems="center" height={50} justifyContent="space-between">
           <Typography>Toggle Sidebar</Typography>
-          <Button color="warning" variant="outlined" onClick={themeActions.toggle}>
+          <Button color="warning" variant="outlined" onClick={sidebarActions.toggle}>
             alt + s
           </Button>
         </FlexBox>
