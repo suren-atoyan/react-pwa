@@ -1,5 +1,12 @@
 ### Releases
 
+## v2.0.2
+
+###### _May 28, 2022_
+
+- packages: update all packages
+- hotkeys: fix hotkeys' names
+
 ## v2.0.1
 
 ###### _Apr 18, 2022_
