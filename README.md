@@ -235,7 +235,7 @@ The last one is a router-based switcher. All routes are defined in [src/routes](
 
 ## Usage
 
-You can use this template by just pressing `Use this temaplte`.
+You can use this template by just pressing `Use this template`.
 
 <img src="./public/use-template.png" width="300" title="Use this temaplte">
 
