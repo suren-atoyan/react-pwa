@@ -1,5 +1,12 @@
 ### Releases
 
+## v2.1.0
+
+###### _Oct 29, 2022_
+
+- packages: update all packages
+  - Vite 3 ✅
+
 ## v2.0.2
 
 ###### _May 28, 2022_
