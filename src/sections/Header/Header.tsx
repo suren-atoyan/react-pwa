@@ -1,8 +1,6 @@
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ThemeIcon from '@mui/icons-material/InvertColors';
 import MenuIcon from '@mui/icons-material/Menu';
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -34,16 +32,11 @@ function Header() {
         // Usually, to show a notification, you'll use something like this:
         // notificationsActions.push({ message: ... })
         // `message` accepts string as well as ReactNode
-        // But you also can use:
-        // notificationsActions.push({ options: { content: ... } })
-        // to show fully customized notification
-        content: (
-          <Alert severity="info">
-            <AlertTitle>Notification demo (random IT jokes :))</AlertTitle>
-            {getRandomJoke()}
-          </Alert>
-        ),
+        // If you want to show a fully customized notification, you can define
+        // your own `variant`s, see @/sections/Notifications/Notifications.tsx
+        variant: 'customNotification',
       },
+      message: getRandomJoke(),
     });
   }
 
