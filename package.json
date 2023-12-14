@@ -1,6 +1,7 @@
 {
   "name": "react-pwa",
   "version": "2.1.0",
+  "type": "module",
   "description": "Starter kit for modern web applications",
   "homepage": "https://react-pwa.surenatoyan.com/",
   "repository": {
