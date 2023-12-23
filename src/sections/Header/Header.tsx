@@ -68,7 +68,7 @@ function Header() {
                   aria-label="open hotkeys dialog"
                   onClick={hotKeysDialogActions.open}
                 >
-                  alt + /
+                  alt + k
                 </HotKeysButton>
               </Tooltip>
             </FlexBox>
