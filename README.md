@@ -18,6 +18,7 @@ Almost all projects need to have a router, a UI framework, store integration, th
 ## Features
 
 - ✅ [Vite](#vite)
+  - `v5` 🔥
 - ✅ [React](#react)
   - `v18` 🔥
 - ✅ [TypeScript](#typescript)
