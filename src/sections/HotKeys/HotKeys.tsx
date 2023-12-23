@@ -22,7 +22,7 @@ function HotKeys() {
   // There is always a workaround, but sometimes it's better to avoid premature and unnecessary optimizations :)
   useHotkeys('alt+s', sidebarActions.toggle);
   useHotkeys('alt+t', themeActions.toggle);
-  useHotkeys('alt+/', hotKeysDialogActions.toggle);
+  useHotkeys('alt+k', hotKeysDialogActions.toggle);
 
   return (
     <Dialog fullWidth maxWidth="xs" onClose={hotKeysDialogActions.close} open={isHotKeysDialogOpen}>
@@ -43,7 +43,7 @@ function HotKeys() {
         <FlexBox alignItems="center" height={50} justifyContent="space-between">
           <Typography>Toggle Hot Keys&apos; Dialog</Typography>
           <Button color="warning" variant="outlined" onClick={hotKeysDialogActions.toggle}>
-            alt + /
+            alt + k
           </Button>
         </FlexBox>
       </DialogContent>

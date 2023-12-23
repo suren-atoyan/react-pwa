@@ -1,5 +1,13 @@
 ### Releases
 
+## v2.2.0
+
+###### _Dec 23, 2023_
+
+- packages: update all packages
+  - Vite 5 ✅
+- replace `Alt + /` with `Alt + k` (there was an issue with detecting `/`)
+
 ## v2.1.0
 
 ###### _Oct 29, 2022_
