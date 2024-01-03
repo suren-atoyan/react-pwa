@@ -32,14 +32,16 @@ function Notifier() {
       if (options.key && displayed.current.includes(options.key)) return;
 
       // display snackbar using notistack
-      enqueueSnackbar(message, {
-        ...options,
-        onExited(event, key) {
-          // removen this snackbar from the store
-          actions.remove(key);
-          removeDisplayed(key);
-        },
-      });
+      if (message) {
+        enqueueSnackbar(message, {
+          ...options,
+          onExited(event, key) {
+            // removen this snackbar from the store
+            actions.remove(key);
+            removeDisplayed(key);
+          },
+        });
+      }
 
       // keep track of snackbars that we've displayed
       options.key && storeDisplayed(options.key);
