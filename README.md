@@ -118,7 +118,7 @@ You have access to `theme` object via `sx` prop and `styled-components`:
 ```js
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { styled } from '@mui/system';
+import { styled } from '@mui/material/styles';
 
 // styled-components
 const MyCoolButton = styled(Button)(({ theme }) => ({
