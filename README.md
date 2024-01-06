@@ -1,3 +1,6 @@
+[![Analyses](https://github.com/suren-atoyan/react-pwa/actions/workflows/analyses.yml/badge.svg)](https://github.com/suren-atoyan/react-pwa/actions/workflows/analyses.yml)
+[![E2E Tests](https://github.com/suren-atoyan/react-pwa/actions/workflows/tests:e2e.yml/badge.svg)](https://github.com/suren-atoyan/react-pwa/actions/workflows/tests:e2e.yml)
+
 <a href="http://react-pwa.surenatoyan.com/" target="_blank" rel="noreferrer">
  <img src="./public/cover.png" title="Base App">
 </a>
@@ -15,17 +18,20 @@ It's a combination of essential (and minimal) libraries/components/utils/etc., w
 
 Almost all projects need to have a router, a UI framework, store integration, theming, error handling, base file/folder structure, a builder, some developer tools (eslint, prettier, etc), and many more. In this starter kit, we tried to put together the best options available from the above-mentioned fields. Out of the box, it provides a modern production-ready setup created by developers for developers 💚
 
-## Features
+### Tech stack
 
 - ✅ [Vite](#vite)
   - `v5` 🔥
 - ✅ [React](#react)
   - `v18` 🔥
 - ✅ [TypeScript](#typescript)
-- ✅ [Router](#router)
-  - `React Router v6`
 - ✅ [UI-framework](#ui-framework)
   - `MUI v5`
+
+### Core features
+
+- ✅ [Router](#router)
+  - `React Router v6`
 - ✅ [Store](#store)
   - `Recoil`
 - ✅ [Notifications](#notifications)
@@ -36,16 +42,23 @@ Almost all projects need to have a router, a UI framework, store integration, th
 - ✅ [Hotkeys](#hotkeys)
 - ✅ [Error Handling](#error-handling)
 - ✅ [Pages](#pages)
-- ✅ [Dev tools](#dev-tools)
-  - ✅ eslint
-  - ✅ prettier
-  - ✅ husky
-  - ✅ lint-staged
-  - ✅ https localhost
+
+### Dev tools and tests
+
+- ✅ [Tests](#tests) 🚀
+  - [unit tests](#unit-tests) - `Vitest`
+  - [e2e tests](#e2e-tests) - `Playwright`
+- ✅ [GitHub Actions](#tests)
+- ✅ [Environmental variables](#environmental-variables)
+- ✅ [EsLint](#eslint)
+- ✅ [Prettier](#prettier)
+- ✅ [Husky](#husky)
+- ✅ [Lint staged](#lint-staged)
+- ✅ [https localhost](#https-localhost)
 
 #### Vite
 
-[Vite](https://vitejs.dev/) is a blazingly fast build tool based on [native ES modules](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/), [rollup](https://rollupjs.org/guide/en/), and [esbuild](https://esbuild.github.io/). `React-PWA` v1 was based on [CRA](https://reactjs.org/docs/create-a-new-react-app.html). We still love `CRA` and really think it's a great tool, but `Vite` provides a much better developer experience and it's unconditionally faster (maybe, we will also create a `CRA` version of `React-PWA` v2 in near future).
+[Vite](https://vitejs.dev/) is a blazingly fast build tool based on [native ES modules](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/), [rollup](https://rollupjs.org/guide/en/), and [esbuild](https://esbuild.github.io/). It provides a great developer experience and super fast builds.
 
 #### React
 
@@ -140,7 +153,31 @@ Here how the base file/folder structure looks like:
 
 <img src="./public/file-folder-structure.png" title="file folder structure">
 
-TBD: more information about the file/folder structure will be added soon.
+Special attention deserves `pages/`, `sections/` and `components/`. These are the main building blocks of the application and here is the difference between them:
+
+- `components` - usually (but not necessarily), in `components/` we keep dummy, stateless components, that are being used in different parts of the application, and they don't belong to the particular page/section, like `Button`, `List`, `Table`, `Loading`, `Divider`, `Flex`, `Dialog`, etc.
+- `sections` - sections are complete parts of the application, that have their own logic, like `Navigation`, `Sidebar`, `Notifications`, etc.
+- `pages` - pages represent the root routes, like `/profile` renders the `Profile` page, `/login` renders `Login` page. Pages are made of sections (no need to have [Page]/sections/ folder). If a section is used on multiple pages it should be moved to `/root/sections`.
+  - in some project you may see `/features` instead of `/sections`
+
+Another important mention is any component folder structure. It should look like this:
+
+```
+- [Component]
+  - index.ts
+  - [Component].tsx
+  - types.ts
+  - styled.ts
+  - utils.tsx
+  - etc.
+```
+
+It's a good practice to keep all related files in one folder. It makes it easier to find and maintain them. Only the first two files are required. You may or may not have component-related types, styles, utils, etc. But if you have them, keep them in the same folder and separate files. Let's see what each file is responsible for:
+
+- `index.ts` - this is the entry file for the component. It default exports the "original" version of the component. It may also export other variations of the component, like `memo()`, `lazy()`, `withSomething()` (any HOC), `loading/error` `Suspense` wrapper if you use `React` cuncarrent mode
+- `[Component].tsx` - this should contain only the component in its pure form, no HOCs, no other wrappers, no types, no styles, no utilities, etc.
+- `types.ts` - contains any type definitions related to the component
+- `styled.ts` - contains styled-components (that's why it's styled.ts no styles.ts), may contain also other style-related properties, like constants (DIALOG_MAX_WIDTH or something), etc. Check this [example](./src/sections/Header/styled.ts)
 
 #### PWA
 
@@ -184,55 +221,102 @@ From a layout point of view the application consists of 3 main parts:
 
 The last one is a router-based switcher. All routes are defined in [src/routes](./src/routes/index.ts). By default, pages are being loaded asynchronously via [asyncComponentLoader](src/utils/loader/loader.tsx). You can use it to asynchronously load any `React` component you want. It uses `React.Suspense` and `React.lazy` with some magic 🧙‍♂️
 
-# Dev tools
+#### Tests
 
-- [eslint](https://eslint.org/)
+Tests are a vital part of any project. Sometimes they are boring, sometimes they are hard to write, but they are very important. This setup tries to make the testing process as easy as possible. It contains:
 
-  The latest version of `eslint` with the latest recommended collection of `eslint` rules is available out of the box. It contains:
+- unit tests
+- e2e tests
 
-  - eslint:recommended
-  - react/recommended
-  - @typescript-eslint/recommended
+##### Unit tests
 
-  Check the [.eslintrc.json](./eslintrc.json) file for more information.
+[Vitest](https://vitest.dev/) is used here for unit tests. Check [src/insertIf/insertIf.spec.ts](./src/insertIf/insertIf.spec.ts) for an example. You can run unit tests by running:
 
-- [prettier](https://prettier.io/)
+```bash
+npm run test:unit # or yarn test:unit
+```
 
-  Stop fighting about styling in code reviews; save your time and energy - configure it once and let the machine format/correct your code.
+##### E2E tests
 
-  Check the [.prettierrc.json](./prettierrc.json) file for more information.
+[Playwright](https://playwright.dev/) is used for e2e tests. Check [e2e/](./e2e/) folder to check examples. You can run e2e tests by running:
 
-  There is an additional configuration for your import statements. They will be automatically ordered and grouped by the given rules (check the `.prettierrc.js`) - one more topic for debates in code reviews :)
+```bash
+npm run test:e2e # or yarn test:e2e
+```
 
-- [husky](https://typicode.github.io/husky/#/)
+If you want to run e2e tests in UI mode, run:
 
-  You can use it to lint your commit messages, run tests, lint code, etc.
+```bash
+npm run test:e2e:ui # or yarn test:e2e:ui
+```
 
-  Currently, only `pre-commit` hook is set up. Every time you try to do a commit it will run `prettier` and `eslint` to be sure that everything is according to the rules.
+[playwright.config.ts](./playwright.config.ts) contains the configuration for e2e tests. Currently, it's configured to run tests in `chromium`, `firefox` and `webkit` browsers. You can add more browsers if you want.
 
-- [lint-staged](https://github.com/okonet/lint-staged)
+#### GitHub Actions
 
-  `lint-staged` helps to run `eslint` and `prettier` only on staged files - it makes the linting process super fast and sensible.
+There are 2 GitHub Actions workflows:
 
-- [https localhost](https://github.com/daquinoaldo/https-localhost)
+- [analyses.yml](./.github/workflows/analyses.yml) - runs `prettier`, `eslint`, `ts` checks and unit tests on every push and pull request to `main/master` branch.
+- [tests:e2e.yml](./.github/workflows/tests:e2e.yml) - runs e2e tests on every push and pull request to `main/master` branch.
 
-  It's a simple way to run your application on localhost with https.
+#### Environmental variables
 
-  Just run:
+Put your environmental variables in the `.env` file (they should be prefixed with `VITE_`) and use them in your code via `import.meta.env.[variable_name]` syntax. `.env` file is not committed to the repository (it's under `.gitignore`), but `env/.shared` is. You can use it as a template. Usually, you will have different `.env` files for different environments (dev, staging, production, etc.), like:
 
-  ```bash
-  npm run https-preview # or yarn https-preview
-  ```
+- `env/.shared` - shared variables
+- `env/.dev` - dev variables
+- `env/.staging` - staging variables
+- `env/.production` - production variables
 
-  after:
+Copy the content of `env/.[template_name]` to `.env` file and fill it with your variables. Note: `env/.shared` is being copied to `.env` file automatically after `npm install`.
 
-  ```bash
-  npm run build # or yarn build
-  ```
+#### EsLint
 
-  and check `https://localhost` in your browser.
+The latest version of [eslint](https://eslint.org/) with the latest recommended collection of `eslint` rules is available out of the box. It contains:
 
-  NOTE: first time it will ask you about installing localhost certificate. For more info check [this](https://github.com/daquinoaldo/https-localhost#root-required)
+- eslint:recommended
+- react/recommended
+- @typescript-eslint/recommended
+
+Check the [.eslintrc.json](./eslintrc.json) file for more information.
+
+#### Prettier
+
+[prettier](https://prettier.io/) - stop fighting about styling in code reviews; save your time and energy - configure it once and let the machine format/correct your code.
+
+Check the [.prettierrc.json](./prettierrc.json) file for more information.
+
+There is an additional configuration for your import statements. They will be automatically ordered and grouped by the given rules (check the `.prettierrc.js`) - one more topic for debates in code reviews :)
+
+#### Husky
+
+You can use [husky](https://typicode.github.io/husky/#/) to lint your commit messages, run tests, lint code, etc.
+
+Currently, only `pre-commit` hook is set up. Every time you try to do a commit it will run `prettier` and `eslint` to be sure that everything is according to the rules.
+
+#### Lint-staged
+
+[lint-staged](https://github.com/okonet/lint-staged) helps to run `eslint` and `prettier` only on staged files - it makes the linting process super fast and sensible.
+
+#### https localhost
+
+[https localhost](https://github.com/daquinoaldo/https-localhost) is a simple way to run your application on localhost with https.
+
+Just run:
+
+```bash
+npm run https-preview # or yarn https-preview
+```
+
+after:
+
+```bash
+npm run build # or yarn build
+```
+
+and check `https://localhost` in your browser.
+
+NOTE: the first time it will ask you about installing localhost certificate. For more info check [this](https://github.com/daquinoaldo/https-localhost#root-required)
 
 ## Usage
 
@@ -260,12 +344,17 @@ In order to do a production build, run:
 npm run build # yarn build
 ```
 
-There are two more scripts:
+There are other scripts as well:
 
-`preview` and `https-preview`
-
-- `preview` command will boot up local static web server that serves the files from `dist` folder. It's an easy way to check if the production build looks OK in your local environment.
-- `https-preview` is the same, but with HTTPS. It's handy for testing your PWA capabilities in your local environment.
+- `prettier:check` - check if all files are formatted according to the rules.
+- `lint:check` - check if all files are linted according to the rules.
+- `ts:check` - check if all files are typed according to the rules.
+- `test:unit` - run unit tests.
+- `test:e2e` - run e2e tests.
+- `test:e2e:ui` - run e2e tests in UI mode.
+- `preview` - boot up local static web server that serves the files from `dist` folder. It's an easy way to check if the production build looks OK in your local environment.
+- `https-preview` - is the same as `preview`, but with HTTPS. It's handy for testing your PWA capabilities in your local environment.
+- `prepare` - install `husky` and copy the default `env/.shared` file to `.env` file. This script is being run automatically after `npm install` or `yarn`.
 
 ## [Live Demo](https://react-pwa.surenatoyan.com/)
 
