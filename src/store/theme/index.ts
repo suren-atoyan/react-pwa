@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from 'react';
 import { atom, useRecoilState } from 'recoil';
 
 import { Themes } from '@/theme/types';
@@ -20,11 +21,13 @@ function synchronizeWithLocalStorage({ setSelf, onSet }: AtomEffectParams) {
 function useTheme(): [Themes, Actions] {
   const [themeMode, setThemeMode] = useRecoilState(themeModeState);
 
-  function toggle() {
+  const toggle = useCallback(() => {
     setThemeMode((mode: Themes) => (mode === Themes.DARK ? Themes.LIGHT : Themes.DARK));
-  }
+  }, [setThemeMode]);
 
-  return [themeMode, { toggle }];
+  const memoizedActions = useMemo(() => ({ toggle }), [toggle]);
+
+  return [themeMode, memoizedActions];
 }
 
 export default useTheme;

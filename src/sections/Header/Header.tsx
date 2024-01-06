@@ -21,7 +21,7 @@ import { getRandomJoke } from './utils';
 
 function Header() {
   const [, sidebarActions] = useSidebar();
-  const [, themeActions] = useTheme();
+  const [theme, themeActions] = useTheme();
   const [, notificationsActions] = useNotifications();
   const [, hotKeysDialogActions] = useHotKeysDialog();
 
@@ -41,7 +41,7 @@ function Header() {
   }
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} data-pw={`theme-${theme}`}>
       <AppBar color="transparent" elevation={1} position="static">
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <FlexBox sx={{ alignItems: 'center' }}>
@@ -80,7 +80,13 @@ function Header() {
             </Tooltip>
             <Divider orientation="vertical" flexItem />
             <Tooltip title="Switch theme" arrow>
-              <IconButton color="info" edge="end" size="large" onClick={themeActions.toggle}>
+              <IconButton
+                color="info"
+                edge="end"
+                size="large"
+                onClick={themeActions.toggle}
+                data-pw="theme-toggle"
+              >
                 <ThemeIcon />
               </IconButton>
             </Tooltip>
