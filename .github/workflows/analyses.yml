@@ -1,0 +1,71 @@
+name: analyses
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: npm ci
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ github.sha }}
+
+  lint:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cached node modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ github.sha }}
+      - name: Eslint
+        run: npm run lint:check
+
+  prettier:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cached node modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ github.sha }}
+      - name: Prettier
+        run: npm run prettier:check
+
+  typescript:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cached node modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ github.sha }}
+      - name: Typescript
+        run: npm run ts:check
+
+  unit_tests:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cached node modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ github.sha }}
+      - name: Unit tests
+        run: npm run test:unit
