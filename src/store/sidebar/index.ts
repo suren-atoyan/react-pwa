@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from 'react';
 import { atom, useRecoilState } from 'recoil';
 
 import type { Actions } from './types';
@@ -10,19 +11,21 @@ const sidebarIsOpenState = atom<boolean>({
 function useSidebar(): [boolean, Actions] {
   const [isOpen, setIsOpen] = useRecoilState(sidebarIsOpenState);
 
-  function toggle() {
+  const toggle = useCallback(() => {
     setIsOpen((isOpen: boolean) => !isOpen);
-  }
+  }, [setIsOpen]);
 
-  function close() {
+  const close = useCallback(() => {
     setIsOpen(false);
-  }
+  }, [setIsOpen]);
 
-  function open() {
+  const open = useCallback(() => {
     setIsOpen(true);
-  }
+  }, [setIsOpen]);
 
-  return [isOpen, { toggle, close, open }];
+  const memoizedActions = useMemo(() => ({ toggle, close, open }), [toggle, close, open]);
+
+  return [isOpen, memoizedActions];
 }
 
 export default useSidebar;

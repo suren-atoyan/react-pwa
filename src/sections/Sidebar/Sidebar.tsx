@@ -22,6 +22,7 @@ function Sidebar() {
       onOpen={sidebarActions.open}
       disableBackdropTransition={false}
       swipeAreaWidth={30}
+      data-pw="sidebar"
     >
       <List sx={{ width: 250, pt: (theme) => `${theme.mixins.toolbar.minHeight}px` }}>
         {Object.values(routes)
