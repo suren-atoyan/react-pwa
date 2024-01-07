@@ -160,7 +160,7 @@ Special attention deserves `pages/`, `sections/` and `components/`. These are th
 - `pages` - pages represent the root routes, like `/profile` renders the `Profile` page, `/login` renders `Login` page. Pages are made of sections (no need to have [Page]/sections/ folder). If a section is used on multiple pages it should be moved to `/root/sections`.
   - in some project you may see `/features` instead of `/sections`
 
-Another important mention is any component folder structure. It should look like this:
+Another important mention is any component's folder structure. It should look like this:
 
 ```
 - [Component]
@@ -174,7 +174,7 @@ Another important mention is any component folder structure. It should look like
 
 It's a good practice to keep all related files in one folder. It makes it easier to find and maintain them. Only the first two files are required. You may or may not have component-related types, styles, utils, etc. But if you have them, keep them in the same folder and separate files. Let's see what each file is responsible for:
 
-- `index.ts` - this is the entry file for the component. It default exports the "original" version of the component. It may also export other variations of the component, like `memo()`, `lazy()`, `withSomething()` (any HOC), `loading/error` `Suspense` wrapper if you use `React` cuncarrent mode
+- `index.ts` - this is the entry file for the component. It `export default`s the "original" version of the component. It may also export other variations of the component, like `memo()`, `lazy()`, `withSomething()` (any HOC), `loading/error` `Suspense` wrapper if you use `React` cuncarrent mode
 - `[Component].tsx` - this should contain only the component in its pure form, no HOCs, no other wrappers, no types, no styles, no utilities, etc.
 - `types.ts` - contains any type definitions related to the component
 - `styled.ts` - contains styled-components (that's why it's styled.ts no styles.ts), may contain also other style-related properties, like constants (DIALOG_MAX_WIDTH or something), etc. Check this [example](./src/sections/Header/styled.ts)
@@ -238,7 +238,7 @@ npm run test:unit # or yarn test:unit
 
 ##### E2E tests
 
-[Playwright](https://playwright.dev/) is used for e2e tests. Check [e2e/](./e2e/) folder to check examples. You can run e2e tests by running:
+[Playwright](https://playwright.dev/) is used for e2e tests. Check [e2e/](./e2e/) folder to see examples. You can run e2e tests by running:
 
 ```bash
 npm run test:e2e # or yarn test:e2e
