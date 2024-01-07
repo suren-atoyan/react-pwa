@@ -1,5 +1,14 @@
 ### Releases
 
+## v2.3.0
+
+###### _Dec 23, 2023_
+
+- packages: update all packages
+- env: add environmental variables
+- tests: add unit tests (`vitest`) and e2e tests (`playwright`)
+- github actions: add github actions
+
 ## v2.2.0
 
 ###### _Dec 23, 2023_
