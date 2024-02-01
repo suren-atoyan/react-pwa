@@ -11,9 +11,24 @@ const sharedTheme = {
     },
   },
   components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+        },
+      },
+    },
     MuiButtonBase: {
       defaultProps: {
         disableRipple: true,
+        color: '#003366',
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          color: '#003366',
+        },
       },
     },
     MuiDivider: {
@@ -41,10 +56,13 @@ const themes: Record<Themes, ThemeOptions> = {
       mode: 'light',
       background: {
         default: '#fafafa',
-        paper: '#fff',
+        paper: '#D1DECD',
       },
       primary: {
-        main: '#3f51b5',
+        main: '#FFEFC1',
+        light: '#F6EED7',
+        dark: '#FDE9A4',
+        contrastText: '#3A312D',
       },
     },
   }),

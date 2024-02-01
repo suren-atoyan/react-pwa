@@ -1,15 +1,27 @@
-import Button from '@mui/material/Button';
+import { AppBar, Toolbar, Link as MuiLink } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-const HotKeysButton = styled(Button)(({ theme }) => ({
-  height: 'fit-content',
-  alignSelf: 'center',
-  marginRight: theme.spacing(1),
-  borderColor: theme.palette.text.disabled,
-  '&:hover': {
-    borderColor: theme.palette.text.disabled,
-  },
-  color: theme.palette.text.disabled,
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
+  backgroundColor: theme.palette.primary.dark,
+  color: theme.palette.text.primary,
 }));
 
-export { HotKeysButton };
+const StyledToolbar = styled(Toolbar)(() => ({
+  justifyContent: 'space-between',
+}));
+
+const StyledLink = styled(MuiLink)(({ theme }) => ({
+  textDecoration: 'none',
+  cursor: 'pointer',
+  color: theme.palette.primary.contrastText,
+  fontSize: '1rem',
+  marginRight: theme.spacing(2),
+  padding: '0.5rem',
+  borderRadius: '0.3rem',
+  '&:hover': {
+    color: theme.palette.primary.contrastText,
+    backgroundColor: theme.palette.primary.light,
+  },
+}));
+
+export { StyledAppBar, StyledToolbar, StyledLink };
