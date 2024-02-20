@@ -5,7 +5,7 @@ import { YellowButton } from '@/components/YellowButton/YellowButton';
 import { StyledAppBar, StyledToolbar, StyledLink } from '../styled';
 
 const links = [
-  { text: 'Projects', href: '/projects' },
+  { text: 'Projects', href: '/solutions' },
   { text: 'About', href: '/about' },
   { text: 'Contact', href: '/contact' },
 ];
