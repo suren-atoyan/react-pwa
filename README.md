@@ -1,5 +1,5 @@
 [![Analyses](https://github.com/suren-atoyan/react-pwa/actions/workflows/analyses.yml/badge.svg)](https://github.com/suren-atoyan/react-pwa/actions/workflows/analyses.yml)
-[![E2E Tests](https://github.com/suren-atoyan/react-pwa/actions/workflows/tests:e2e.yml/badge.svg)](https://github.com/suren-atoyan/react-pwa/actions/workflows/tests:e2e.yml)
+[![E2E Tests](https://github.com/suren-atoyan/react-pwa/actions/workflows/tests_e2e.yml/badge.svg)](https://github.com/suren-atoyan/react-pwa/actions/workflows/tests_e2e.yml)
 
 <a href="http://react-pwa.surenatoyan.com/" target="_blank" rel="noreferrer">
  <img src="./public/cover.png" title="Base App">
@@ -257,7 +257,7 @@ npm run test:e2e:ui # or yarn test:e2e:ui
 There are 2 GitHub Actions workflows:
 
 - [analyses.yml](./.github/workflows/analyses.yml) - runs `prettier`, `eslint`, `ts` checks and unit tests on every push and pull request to `main/master` branch.
-- [tests:e2e.yml](./.github/workflows/tests:e2e.yml) - runs e2e tests on every push and pull request to `main/master` branch.
+- [tests_e2e.yml](./.github/workflows/tests_e2e.yml) - runs e2e tests on every push and pull request to `main/master` branch.
 
 #### Environmental variables
 
