@@ -1,28 +1,29 @@
 import { useState, useMemo } from 'react';
 import { useGetFeatures } from '@/apis';
 import { generatePredioLayers } from '@/components/Map/generatePredioLayers';
-import { Feature } from '@turf/turf';
+import { Feature, FeatureCollection } from '@turf/turf';
 
+interface Center extends FeatureCollection {
+  properties: {
+    lat: number;
+    lng: number;
+  };
+}
 export const useMap = () => {
   const [selectedPredio, setSelectedPredio] = useState(1);
-  const [selectedLayer, setSelectedLayer] = useState<'perimeter' | 'lines' | 'plants' | 'center'>(
-    'perimeter',
+  const [selectedLayer, setSelectedLayer] = useState<'initial' | 'polygon' | 'icon' | 'column'>(
+    'initial',
   );
-  const [selectedQuality, setSelectedQuality] = useState<null | number>(null);
-
   const { data: dataset, isLoading, error } = useGetFeatures('cls5zsq1578x81mp5a475umdl');
+  const initialLayers = useMemo(() => generatePredioLayers(dataset, 3), [dataset]);
 
   const handleSelectPredio = () => {
     // setSelectedPredio(e.target.value);
     setSelectedPredio(1);
-    setSelectedLayer('perimeter');
+    setSelectedLayer('initial');
   };
 
-  const handleSelectLayer = () => {};
-
-  const layers = useMemo(() => generatePredioLayers(dataset, 3), [dataset]);
-
-  const center = dataset?.features?.find(
+  const center: Center = dataset?.features?.find(
     (feature: Feature) =>
       feature?.geometry?.type === 'Point' &&
       feature?.properties?.name === `Centro Predio ${selectedPredio}`,
@@ -30,9 +31,8 @@ export const useMap = () => {
 
   return {
     center,
-    layers,
+    initialLayers,
     selectedLayer,
-    handleSelectLayer,
     handleSelectPredio,
     selectedPredio,
     isLoading,

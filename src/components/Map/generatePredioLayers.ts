@@ -2,15 +2,15 @@ import { FeatureCollection } from '@turf/turf';
 import { GeoJsonLayer, LineLayer, ColumnLayer, IconLayer } from '@deck.gl/layers/typed';
 import { getLinesPlants } from './getLinesPLants';
 import { ICON_MAPPING } from '@/utils/constants';
-import { Row } from '@/types';
+import { Plant, Row } from '@/types';
 
 export const generatePredioLayers = (
   featureCollection: FeatureCollection,
   plantsDistance: number = 3,
 ) => {
   if (!featureCollection) return [];
-  let features: Array<GeoJsonLayer | ColumnLayer | LineLayer | IconLayer | undefined>;
 
+  let features: Array<GeoJsonLayer | ColumnLayer | LineLayer | IconLayer | undefined>;
   features = featureCollection?.features
     ?.map((feature, i) => {
       const { properties, geometry } = feature;
@@ -97,18 +97,27 @@ export const generatePredioLayers = (
       getFillColor: (d) => {
         const { properties } = d;
         const { calidad, cargadoresPlanta, yemasCargador, yemasPlanta } = properties;
-        return [
-          calidad * cargadoresPlanta,
-          yemasPlanta + yemasCargador,
-          calidad * cargadoresPlanta,
-        ];
+        // Map calidad values to colors
+        if (calidad <= 1) {
+          return [255, 0, 0]; // Danger red for calidad <= 1
+        } else if (calidad <= 2) {
+          return [255, 165, 0]; // Orange for 1 < calidad <= 2
+        } else if (calidad <= 3) {
+          return [255, 255, 100]; // Light yellow for 2 < calidad <= 3
+        } else if (calidad <= 4) {
+          return [144, 238, 144]; // Light green for 3 < calidad <= 4
+        } else {
+          return [0, 100, 0]; // Deep green for calidad > 4
+        }
       },
       getLineColor: [255, 0, 0],
       diskResolution: 12,
       pickable: true,
       extruded: true,
       dimension: '3D',
-      getElevation: (d) => d.properties.yemasPlanta / 30,
+      getElevation: (d: Plant) => {
+        return d.properties.calidad;
+      },
     });
   });
 

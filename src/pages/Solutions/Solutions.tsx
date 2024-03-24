@@ -27,24 +27,22 @@ function Solutions() {
       <Meta title="Our Projects" />
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '20px',
         }}
       >
-        <Box
-          sx={{
-            padding: '20px',
-          }}
-        >
+        <Box>
           <TabContext value={selectedTab}>
             <Box
               sx={{
                 borderBottom: 1,
                 borderColor: 'divider',
+                marginTop: '10vh',
               }}
             >
               <Tabs
+                centered
                 value={selectedTab}
                 onChange={handleTabChange}
                 textColor="secondary"
@@ -58,7 +56,9 @@ function Solutions() {
             <TabPanel2 value={'2'} />
           </TabContext>
         </Box>
-        <RenderMap />
+        <Box>
+          <RenderMap />
+        </Box>
       </Box>
     </Box>
   );

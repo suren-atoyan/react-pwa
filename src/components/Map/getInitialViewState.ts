@@ -1,16 +1,32 @@
 import { InitialViewState } from '@/types';
-import { PredioCenter } from '@/types/Map/primitives';
 import { token } from '@/utils/constants';
 
-export const getInitialViewState = (center: PredioCenter): InitialViewState => {
+type Center = {
+  properties: {
+    lat: number;
+    lng: number;
+  };
+};
+
+const replaceComma = (number: number) => {
+  return Number(number.toString().replace(',', '.'));
+};
+
+export const getInitialViewState = (center: Center): InitialViewState => {
+  const lat = replaceComma(center?.properties?.lat);
+  const lng = replaceComma(center?.properties?.lng);
+
   const initialViewState: InitialViewState = {
     zoom: 17,
     pitch: 40,
     bearing: 35,
     token,
-    longitude: center?.geometry?.coordinates[0],
-    latitude: center?.geometry?.coordinates[1],
+    longitude: lng,
+    latitude: lat,
   };
+
+  console.log('longitude', initialViewState.longitude);
+  console.log('lat', initialViewState.latitude);
 
   return initialViewState;
 };

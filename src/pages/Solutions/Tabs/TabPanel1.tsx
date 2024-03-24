@@ -9,7 +9,7 @@ type TabPanelProps = {
 };
 
 export const TabPanel1 = ({ value }: TabPanelProps) => {
-  const { layers } = useMap();
+  const { initialLayers } = useMap();
   const {
     plantsWithQualityFive,
     plantsWithQualityFour,
@@ -17,8 +17,7 @@ export const TabPanel1 = ({ value }: TabPanelProps) => {
     plantsWithQualityTwo,
     plantsWithQualityOne,
     totalPlants,
-  } = countPlants(layers as Layer[]);
-  const lines = layers.flat().filter((layer) => layer?.id.includes('line'));
+  } = countPlants(initialLayers as Layer[]) ?? {};
 
   return (
     <TabPanel value={value}>

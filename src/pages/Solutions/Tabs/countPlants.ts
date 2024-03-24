@@ -1,8 +1,8 @@
 import { Layer } from '@/types';
 
 export const countPlants = (layers: Layer[]) => {
-  const plantsColumns = layers.flat().filter((layer) => layer?.id.includes('column'));
-  const totalPlants = plantsColumns.reduce((acc, layer) => {
+  const plantsColumns = layers?.flat()?.filter((layer) => layer?.id.includes('column'));
+  const totalPlants = plantsColumns?.reduce((acc, layer) => {
     if (Array.isArray(layer?.props.data)) {
       return acc + layer.props.data.length;
     }
