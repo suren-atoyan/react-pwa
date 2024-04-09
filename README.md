@@ -1,3 +1,5 @@
+asd astesst
+
 [![Analyses](https://github.com/suren-atoyan/react-pwa/actions/workflows/analyses.yml/badge.svg)](https://github.com/suren-atoyan/react-pwa/actions/workflows/analyses.yml)
 [![E2E Tests](https://github.com/suren-atoyan/react-pwa/actions/workflows/tests_e2e.yml/badge.svg)](https://github.com/suren-atoyan/react-pwa/actions/workflows/tests_e2e.yml)
 
