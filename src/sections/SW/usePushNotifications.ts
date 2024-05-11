@@ -39,7 +39,7 @@ export const usePushNotifications = ({
   useEffect(() => {
     let subscriber: ReturnType<typeof createSubscriber> | undefined = undefined;
     if (subscription && registration) {
-      console.log('adding push listener');
+      console.log('adding push listener', self);
       subscriber = createSubscriber(registration);
       self.addEventListener('push', (event: any) => {
         const payload = event.data?.text() ?? 'no payload';
