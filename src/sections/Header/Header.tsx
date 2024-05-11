@@ -42,7 +42,7 @@ function Header({ subscription }: { subscription: PushSubscription | undefined }
     if (subscription) {
       await fetch(`${API_URL}/push`, {
         method: 'POST',
-        body: JSON.stringify({ subscription, payload: getRandomJoke }),
+        body: JSON.stringify({ subscription, payload: getRandomJoke() }),
       });
     }
   }
