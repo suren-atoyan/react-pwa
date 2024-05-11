@@ -30,7 +30,7 @@ export const usePushNotifications = ({
 
       if (!subscription) {
         const response = await fetch(`${API_URL}/vapidPublicKey`);
-        const vapidPublicKey = await response.text();
+        const vapidPublicKey = await response.json();
         // Chrome doesn't accept the base64-encoded (string) vapidPublicKey yet
         // urlBase64ToUint8Array() is defined in /tools.js
         const convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey);
