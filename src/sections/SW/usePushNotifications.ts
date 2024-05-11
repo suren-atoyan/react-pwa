@@ -20,6 +20,7 @@ function urlBase64ToUint8Array(base64String: string) {
 const createSubscriber = (registration: ServiceWorkerRegistration) =>
   function subscribeToPush(event: any) {
     const payload = event.data?.text() ?? 'no payload';
+    console.log('received push notification', payload);
     event.waitUntil(
       registration?.showNotification('ServiceWorker Cookbook', {
         body: payload,
@@ -37,11 +38,14 @@ export const usePushNotifications = ({
   useEffect(() => {
     let subscriber: ReturnType<typeof createSubscriber> | undefined = undefined;
     if (registration) {
+      console.log('adding push listener');
       subscriber = createSubscriber(registration);
       self.addEventListener('push', subscriber);
+      console.log('added push listener');
     }
     return () => {
       if (subscriber) {
+        console.log('removed push listener');
         self.removeEventListener('push', subscriber);
       }
     };
