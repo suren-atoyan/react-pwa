@@ -1,3 +1,3 @@
-import SW from './SW';
+import { useSW } from './SW';
 
-export default SW;
+export { useSW };

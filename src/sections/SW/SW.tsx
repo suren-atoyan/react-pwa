@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
@@ -7,16 +7,21 @@ import type { SnackbarKey } from 'notistack';
 import { useRegisterSW } from 'virtual:pwa-register/react';
 
 import useNotifications from '@/store/notifications';
+import { usePushNotifications } from './usePushNotifications';
 
 // TODO (Suren): this should be a custom hook :)
-function SW() {
+export const useSW = () => {
+  const [registration, setRegistration] = useState<ServiceWorkerRegistration>();
+
+  const { subscription } = usePushNotifications({ registration });
+
   const [, notificationsActions] = useNotifications();
   const notificationKey = useRef<SnackbarKey | null>(null);
   const {
     offlineReady: [offlineReady, setOfflineReady],
     needRefresh: [needRefresh, setNeedRefresh],
     updateServiceWorker,
-  } = useRegisterSW();
+  } = useRegisterSW({ onRegisteredSW: (_, registration) => setRegistration(registration) });
 
   const close = useCallback(() => {
     setOfflineReady(false);
@@ -52,7 +57,5 @@ function SW() {
     }
   }, [close, needRefresh, offlineReady, notificationsActions, updateServiceWorker]);
 
-  return null;
-}
-
-export default SW;
+  return { subscription };
+};

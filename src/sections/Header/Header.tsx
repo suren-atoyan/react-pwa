@@ -12,32 +12,39 @@ import Tooltip from '@mui/material/Tooltip';
 import { FlexBox } from '@/components/styled';
 import { repository, title } from '@/config';
 import useHotKeysDialog from '@/store/hotkeys';
-import useNotifications from '@/store/notifications';
+// import useNotifications from '@/store/notifications';
 import useSidebar from '@/store/sidebar';
 import useTheme from '@/store/theme';
 
 import { HotKeysButton } from './styled';
 import { getRandomJoke } from './utils';
+import { API_URL } from '@/const';
 
-function Header() {
+function Header({ subscription }: { subscription: PushSubscription | undefined }) {
   const [, sidebarActions] = useSidebar();
   const [theme, themeActions] = useTheme();
-  const [, notificationsActions] = useNotifications();
+  // const [, notificationsActions] = useNotifications();
   const [, hotKeysDialogActions] = useHotKeysDialog();
 
-  function showNotification() {
-    notificationsActions.push({
-      options: {
-        // Show fully customized notification
-        // Usually, to show a notification, you'll use something like this:
-        // notificationsActions.push({ message: ... })
-        // `message` accepts string as well as ReactNode
-        // If you want to show a fully customized notification, you can define
-        // your own `variant`s, see @/sections/Notifications/Notifications.tsx
-        variant: 'customNotification',
-      },
-      message: getRandomJoke(),
-    });
+  async function showNotification() {
+    // notificationsActions.push({
+    //   options: {
+    //     // Show fully customized notification
+    //     // Usually, to show a notification, you'll use something like this:
+    //     // notificationsActions.push({ message: ... })
+    //     // `message` accepts string as well as ReactNode
+    //     // If you want to show a fully customized notification, you can define
+    //     // your own `variant`s, see @/sections/Notifications/Notifications.tsx
+    //     variant: 'customNotification',
+    //   },
+    //   message: getRandomJoke(),
+    // });
+    if (subscription) {
+      await fetch(`${API_URL}/push`, {
+        method: 'POST',
+        body: JSON.stringify({ subscription, payload: getRandomJoke }),
+      });
+    }
   }
 
   return (

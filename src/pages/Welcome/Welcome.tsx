@@ -10,9 +10,29 @@ import rrLogo from './logos/rr.svg';
 import tsLogo from './logos/ts.svg';
 import viteLogo from './logos/vite.svg';
 import { Image } from './styled';
+// import { useEffect } from 'react';
+
+// function randomNotification() {
+//   const notifTitle = 'Hello';
+//   const notifBody = 'Hello there!';
+//   const options = {
+//     body: notifBody,
+//   };
+//   new Notification(notifTitle, options);
+//   setTimeout(randomNotification, 2000);
+// }
 
 function Welcome() {
   const isPortrait = useOrientation();
+
+  // useEffect(() => {
+  // Notification.requestPermission().then((result) => {
+  //   console.log(result);
+  //   if (result === 'granted') {
+  //     randomNotification();
+  //   }
+  // });
+  // }, []);
 
   const width = isPortrait ? '40%' : '30%';
   const height = isPortrait ? '30%' : '40%';
