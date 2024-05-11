@@ -17,12 +17,35 @@ function urlBase64ToUint8Array(base64String: string) {
   return outputArray;
 }
 
+const createSubscriber = (registration: ServiceWorkerRegistration) =>
+  function subscribeToPush(event: any) {
+    const payload = event.data?.text() ?? 'no payload';
+    event.waitUntil(
+      registration?.showNotification('ServiceWorker Cookbook', {
+        body: payload,
+      }),
+    );
+  };
+
 export const usePushNotifications = ({
   registration,
 }: {
   registration: ServiceWorkerRegistration | undefined;
 }) => {
   const [subscription, setSubscription] = useState<PushSubscription>();
+
+  useEffect(() => {
+    let subscriber: ReturnType<typeof createSubscriber> | undefined = undefined;
+    if (registration) {
+      subscriber = createSubscriber(registration);
+      self.addEventListener('push', subscriber);
+    }
+    return () => {
+      if (subscriber) {
+        self.removeEventListener('push', subscriber);
+      }
+    };
+  }, [registration]);
 
   useEffect(() => {
     const subscribeToPush = async (registration: ServiceWorkerRegistration) => {
