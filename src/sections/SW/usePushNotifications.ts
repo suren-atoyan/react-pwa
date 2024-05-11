@@ -17,8 +17,8 @@ function urlBase64ToUint8Array(base64String: string) {
   return outputArray;
 }
 
-const createSubscriber = (registration: ServiceWorkerRegistration) =>
-  function subscribeToPush(event: any) {
+const createSubscriber = (registration: ServiceWorkerRegistration) => {
+  return function subscribeToPush(event: any) {
     const payload = event.data?.text() ?? 'no payload';
     console.log('received push notification', payload);
     event.waitUntil(
@@ -27,6 +27,7 @@ const createSubscriber = (registration: ServiceWorkerRegistration) =>
       }),
     );
   };
+};
 
 export const usePushNotifications = ({
   registration,
@@ -40,7 +41,15 @@ export const usePushNotifications = ({
     if (subscription && registration) {
       console.log('adding push listener');
       subscriber = createSubscriber(registration);
-      self.addEventListener('push', subscriber);
+      self.addEventListener('push', (event: any) => {
+        const payload = event.data?.text() ?? 'no payload';
+        console.log('received push notification', payload);
+        event.waitUntil(
+          registration?.showNotification('ServiceWorker Cookbook', {
+            body: payload,
+          }),
+        );
+      });
       console.log('added push listener');
     }
     return () => {
