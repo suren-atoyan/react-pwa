@@ -37,7 +37,7 @@ export const usePushNotifications = ({
 
   useEffect(() => {
     let subscriber: ReturnType<typeof createSubscriber> | undefined = undefined;
-    if (registration) {
+    if (subscription && registration) {
       console.log('adding push listener');
       subscriber = createSubscriber(registration);
       self.addEventListener('push', subscriber);
@@ -49,7 +49,7 @@ export const usePushNotifications = ({
         self.removeEventListener('push', subscriber);
       }
     };
-  }, [registration]);
+  }, [registration, subscription]);
 
   useEffect(() => {
     const subscribeToPush = async (registration: ServiceWorkerRegistration) => {
