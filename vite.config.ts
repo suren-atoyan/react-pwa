@@ -12,10 +12,15 @@ export default defineConfig({
     react(),
     VitePWA({
       manifest,
+      srcDir: 'src',
+      filename: 'my-worker.ts',
+      strategies: 'injectManifest',
       includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
-      // switch to "true" to enable sw on development
+      // // switch to "true" to enable sw on development
       devOptions: {
-        enabled: false,
+        enabled: process.env.SW_DEV === 'true',
+        type: 'module',
+        navigateFallback: 'index.html',
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html}', '**/*.{svg,png,jpg,gif}'],

@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
+    "dev": "SW_DEV=true vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "https-preview": "serve dist",

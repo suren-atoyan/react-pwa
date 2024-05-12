@@ -17,48 +17,12 @@ function urlBase64ToUint8Array(base64String: string) {
   return outputArray;
 }
 
-const createSubscriber = (registration: ServiceWorkerRegistration) => {
-  return function subscribeToPush(event: any) {
-    const payload = event.data?.text() ?? 'no payload';
-    console.log('received push notification', payload);
-    event.waitUntil(
-      registration?.showNotification('ServiceWorker Cookbook', {
-        body: payload,
-      }),
-    );
-  };
-};
-
 export const usePushNotifications = ({
   registration,
 }: {
   registration: ServiceWorkerRegistration | undefined;
 }) => {
   const [subscription, setSubscription] = useState<PushSubscription>();
-
-  useEffect(() => {
-    let subscriber: ReturnType<typeof createSubscriber> | undefined = undefined;
-    if (subscription && registration) {
-      console.log('adding push listener', self);
-      subscriber = createSubscriber(registration);
-      self.addEventListener('push', (event: any) => {
-        const payload = event.data?.text() ?? 'no payload';
-        console.log('received push notification', payload);
-        event.waitUntil(
-          registration?.showNotification('ServiceWorker Cookbook', {
-            body: payload,
-          }),
-        );
-      });
-      console.log('added push listener');
-    }
-    return () => {
-      if (subscriber) {
-        console.log('removed push listener');
-        self.removeEventListener('push', subscriber);
-      }
-    };
-  }, [registration, subscription]);
 
   useEffect(() => {
     const subscribeToPush = async (registration: ServiceWorkerRegistration) => {
