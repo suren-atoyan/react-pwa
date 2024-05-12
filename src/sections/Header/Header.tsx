@@ -10,7 +10,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
 
 import { FlexBox } from '@/components/styled';
-import { repository, title } from '@/config';
+import { repository } from '@/config';
 import useHotKeysDialog from '@/store/hotkeys';
 // import useNotifications from '@/store/notifications';
 import useSidebar from '@/store/sidebar';
@@ -62,8 +62,8 @@ function Header({ subscription }: { subscription: PushSubscription | undefined }
             >
               <MenuIcon />
             </IconButton>
-            <Button onClick={showNotification} color="info">
-              {title}
+            <Button onClick={showNotification} color="secondary">
+              Send push
             </Button>
           </FlexBox>
           <FlexBox>
