@@ -19,7 +19,7 @@ self.addEventListener('push', (event: any) => {
   );
 });
 
-console.log('hello, i am started', self.__WB_MANIFEST);
+console.log('hello, i am started');
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting();
