@@ -13,7 +13,14 @@ import SW from '@/sections/SW';
 import Sidebar from '@/sections/Sidebar';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 function App() {
   return (

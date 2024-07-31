@@ -1,14 +1,15 @@
 import { useMap } from '@/hooks/useMap';
 import { TabPanel } from '@mui/lab';
 import { countPlants } from './countPlants';
-import { Layer } from '@/types';
 import './style.css';
+import { TFeaturesMap } from '@/components/Map';
 
 type TabPanelProps = {
   value: string;
+  handleSelectLayer: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
-export const TabPanel1 = ({ value }: TabPanelProps) => {
+export const TabPanel1 = ({ value, handleSelectLayer }: TabPanelProps) => {
   const { initialLayers } = useMap();
   const {
     plantsWithQualityFive,
@@ -17,10 +18,23 @@ export const TabPanel1 = ({ value }: TabPanelProps) => {
     plantsWithQualityTwo,
     plantsWithQualityOne,
     totalPlants,
-  } = countPlants(initialLayers as Layer[]) ?? {};
+  } = countPlants(initialLayers as TFeaturesMap) ?? {};
 
   return (
     <TabPanel value={value}>
+      <label
+        htmlFor="layerSelector"
+        style={{
+          display: 'flex',
+          gap: '1rem',
+        }}
+      >
+        Select Layer:
+        <select onChange={handleSelectLayer}>
+          <option value={'column'}>Plants</option>
+          <option value={'line'}>Lines</option>
+        </select>
+      </label>
       <table
         style={{
           width: '100%',

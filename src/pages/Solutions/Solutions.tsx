@@ -1,65 +1,45 @@
-import Meta from '@/components/Meta';
-import RenderMap from './Map';
-import { Box, Tab, Tabs } from '@mui/material';
+import { MapTabs } from '@/components/Map';
 import isMobile from '@/utils/is-mobile';
-import { useState } from 'react';
-import { TabPanel1, TabPanel2 } from './Tabs';
-import { TabContext } from '@mui/lab';
+import { useMap } from '@/hooks/useMap';
+import Meta from '@/components/Meta';
+import { Box } from '@mui/material';
+import RenderMap from './RenderMap';
 
 function Solutions() {
-  const responsive = isMobile;
-  const [selectedTab, setSelectedTab] = useState('1');
+  const { center, isLoading, selectedTab, layers, handleTabChange, handleSelectLayer } = useMap();
 
-  const handleTabChange = (_event: React.SyntheticEvent, newValue: string) => {
-    setSelectedTab(newValue);
-  };
-
-  if (responsive) {
-    return (
-      <Box>
-        <Meta title="Our Projects" />
-        <RenderMap />
-      </Box>
-    );
-  }
   return (
     <Box>
-      <Meta title="Our Projects" />
-      <Box
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '20px',
-        }}
-      >
-        <Box>
-          <TabContext value={selectedTab}>
-            <Box
-              sx={{
-                borderBottom: 1,
-                borderColor: 'divider',
-                marginTop: '10vh',
-              }}
-            >
-              <Tabs
-                centered
-                value={selectedTab}
-                onChange={handleTabChange}
-                textColor="secondary"
-                indicatorColor="secondary"
-              >
-                <Tab label="Data" value="1" />
-                <Tab label="Features" value="2" />
-              </Tabs>
+      <Meta title="Our Solutions" />
+      {isMobile ? (
+        <>
+          <RenderMap center={center} layers={layers} isLoading={isLoading} />
+          <MapTabs
+            handleTabChange={handleTabChange}
+            selectedTab={selectedTab}
+            handleSelectLayer={handleSelectLayer}
+          />
+        </>
+      ) : (
+        <>
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: '20px',
+            }}
+          >
+            <MapTabs
+              handleTabChange={handleTabChange}
+              selectedTab={selectedTab}
+              handleSelectLayer={handleSelectLayer}
+            />
+            <Box>
+              <RenderMap center={center} layers={layers} isLoading={isLoading} />
             </Box>
-            <TabPanel1 value={'1'} />
-            <TabPanel2 value={'2'} />
-          </TabContext>
-        </Box>
-        <Box>
-          <RenderMap />
-        </Box>
-      </Box>
+          </Box>
+        </>
+      )}
     </Box>
   );
 }

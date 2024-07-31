@@ -3,15 +3,17 @@ import { title } from '@/config';
 import { FlexBox } from '@/components/styled';
 import { YellowButton } from '@/components/YellowButton/YellowButton';
 import { StyledAppBar, StyledToolbar, StyledLink } from '../styled';
-
-const links = [
-  { text: 'Projects', href: '/solutions' },
-  { text: 'About', href: '/about' },
-  { text: 'Contact', href: '/contact' },
-];
+import { translate } from '@/store/language';
 
 export const DesktopHeader = () => {
-  const { handleClickLogo, handleOpenChatBot, handleClickLink } = HeaderController();
+  const { language, handleSetLanguage, handleClickLogo, handleOpenChatBot, handleClickLink } =
+    HeaderController();
+
+  const links = [
+    { text: translate('solutions', language), href: '/solutions' },
+    { text: translate('team', language), href: '/about' },
+    { text: translate('contact', language), href: '/contact' },
+  ];
 
   return (
     <StyledAppBar elevation={0}>
@@ -27,6 +29,10 @@ export const DesktopHeader = () => {
           ))}
         </FlexBox>
         <FlexBox>
+          <select onChange={handleSetLanguage} defaultValue={'english'}>
+            <option value={'spanish'}>Español</option>
+            <option value={'english'}>English</option>
+          </select>
           <YellowButton size="medium" text="What do you need?" onClick={handleOpenChatBot} />
         </FlexBox>
       </StyledToolbar>

@@ -1,10 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import axios from 'axios';
+import { FeatureCollection } from '@turf/turf';
 
 const MAPBOX_API_BASE_URL = 'https://api.mapbox.com/datasets/v1';
-const USER_ID = 'carlosgl93';
-const ACCESS_TOKEN =
-  'pk.eyJ1IjoiY2FybG9zZ2w5MyIsImEiOiJjbHM1aG5tYm4xa2twMmxtdXNwN3dmYTNwIn0.3uBIAVK6Qb5Y4Rz1yEFw9Q';
+const USER_ID = import.meta.env.VITE_ENV_MAPBOX_USER_ID;
+const ACCESS_TOKEN = import.meta.env.VITE_ENV_MAPBOX_TOKEN;
 
 // Fetch a dataset
 export const useGetDataset = (datasetId: string) => {
@@ -16,10 +16,10 @@ export const useGetDataset = (datasetId: string) => {
 };
 
 export const useGetFeatures = (datasetId: string) => {
-  return useQuery(['features', datasetId], () =>
+  return useQuery<FeatureCollection>(['features', datasetId], () =>
     axios
       .get(`${MAPBOX_API_BASE_URL}/${USER_ID}/${datasetId}/features?access_token=${ACCESS_TOKEN}`)
-      .then((response) => response.data),
+      .then((response) => response.data as FeatureCollection),
   );
 };
 

@@ -27,8 +27,9 @@ export const getLinesPlants = (rowData: Row[], distanceBetweenPlants: number) =>
   };
   const plants = rowData?.map((row, i) => {
     // Convert the coordinates to turf points
-    const startPoint = turf.point(row.geometry.coordinates[0]);
-    const endPoint = turf.point(row.geometry.coordinates[1]);
+    if (typeof row.geometry.coordinates[0][0] !== 'number') return;
+    const startPoint = turf.point(row?.geometry?.coordinates[0]);
+    const endPoint = turf.point(row?.geometry?.coordinates[1]);
 
     // Calculate the distance between the two points in meters
     const distance = turf.distance(startPoint, endPoint, { units: 'kilometers' }) * 1000;
