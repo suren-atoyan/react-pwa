@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { PathRouteProps } from 'react-router-dom';
+import { PathRouteProps } from 'react-router';
 
 import type { SvgIconProps } from '@mui/material/SvgIcon';
 
