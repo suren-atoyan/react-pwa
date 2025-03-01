@@ -1,3 +1,5 @@
+import App from '@/App';
+import render from '@/root';
 import welcome from '@/utils/welcome';
 
 import './index.css';
@@ -10,9 +12,7 @@ import './index.css';
 // Importing them with Promise.all (by using HTTP/2/3 multiplexing) we can load them in parallel
 // and achieve the best possible performance
 
-Promise.all([import('@/root'), import('@/App')]).then(([{ default: render }, { default: App }]) => {
-  render(App);
-});
+render(App);
 
 // welcome message for users in the console
 welcome();

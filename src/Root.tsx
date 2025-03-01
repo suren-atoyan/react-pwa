@@ -1,9 +1,9 @@
 import { ComponentType, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-// from MUI's toolpad we use only Notifications
+// from MUI's toolpad we only use Notifications
 import { NotificationsProvider } from '@toolpad/core/useNotifications';
-import { Provider } from 'jotai';
+import { Provider as JotaiProvider } from 'jotai';
 
 import ThemeProvider from '@/theme/Provider';
 
@@ -13,13 +13,13 @@ const root = createRoot(container);
 function render(App: ComponentType) {
   root.render(
     <StrictMode>
-      <Provider>
+      <JotaiProvider>
         <ThemeProvider>
           <NotificationsProvider>
             <App />
           </NotificationsProvider>
         </ThemeProvider>
-      </Provider>
+      </JotaiProvider>
     </StrictMode>,
   );
 }
