@@ -21,7 +21,7 @@
     "prepare": "husky install && cp -n env/.shared .env &",
     "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "lint:check": "eslint --max-warnings=0 \"src/**/*.{js,jsx,ts,tsx,json}\"",
-    "ts:check": "tsc --noEmit --traceResolution --extendedDiagnostics",
+    "ts:check": "tsc --noEmit",
     "test:unit": "vitest src",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui"

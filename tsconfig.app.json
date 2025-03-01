@@ -14,8 +14,6 @@
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
     "noEmit": true,
     "jsx": "react-jsx",
 
