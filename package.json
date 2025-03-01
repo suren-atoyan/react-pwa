@@ -15,8 +15,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "NODE_ENV=production tsc -b && vite build",
-    "preview": "NODE_ENV=production vite preview",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
     "https-preview": "serve dist",
     "prepare": "husky install && cp -n env/.shared .env &",
     "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
