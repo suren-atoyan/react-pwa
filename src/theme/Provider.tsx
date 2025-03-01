@@ -1,8 +1,8 @@
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
+import { useThemeMode } from './hooks';
 import themes from './themes';
 import type { CustomThemeProviderProps } from './types';
-import { useThemeMode } from './hooks';
 
 function CustomThemeProvider({ children }: CustomThemeProviderProps) {
   const { themeMode } = useThemeMode();

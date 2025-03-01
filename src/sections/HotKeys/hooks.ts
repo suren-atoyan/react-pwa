@@ -1,6 +1,8 @@
-import { useAtom } from 'jotai';
-import { isHotKeysDialogOpenState } from './atoms';
 import { useCallback } from 'react';
+
+import { useAtom } from 'jotai';
+
+import { isHotKeysDialogOpenState } from './atoms';
 
 function useHotKeysDialog() {
   const [isOpen, setIsOpen] = useAtom(isHotKeysDialogOpenState);

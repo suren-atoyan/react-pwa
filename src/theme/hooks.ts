@@ -1,6 +1,8 @@
-import { useAtom } from 'jotai';
-import { themeModeState } from './atoms';
 import { useCallback } from 'react';
+
+import { useAtom } from 'jotai';
+
+import { themeModeState } from './atoms';
 import { ThemeMode } from './types';
 
 function useThemeMode() {

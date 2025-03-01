@@ -1,13 +1,15 @@
+import { Fragment } from 'react';
 import { BrowserRouter } from 'react-router';
+
+import { CssBaseline } from '@mui/material';
+
 import { withErrorHandler } from '@/error-handling';
 import AppErrorBoundaryFallback from '@/error-handling/fallbacks/App';
 
-import Header from './sections/Header';
-import Sidebar from './sections/Sidebar';
 import Pages from './routes/Pages';
-import { CssBaseline } from '@mui/material';
+import Header from './sections/Header';
 import HotKeys from './sections/HotKeys';
-import { Fragment } from 'react';
+import Sidebar from './sections/Sidebar';
 
 function App() {
   return (

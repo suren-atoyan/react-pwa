@@ -1,8 +1,9 @@
 import { ComponentType, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Provider } from 'jotai';
+
 // from MUI's toolpad we use only Notifications
 import { NotificationsProvider } from '@toolpad/core/useNotifications';
+import { Provider } from 'jotai';
 
 import ThemeProvider from '@/theme/Provider';
 

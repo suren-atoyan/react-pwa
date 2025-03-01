@@ -1,10 +1,12 @@
 import { useHotkeys } from 'react-hotkeys-hook';
 
-import { Typography, DialogTitle, Button, Dialog, DialogContent } from '@mui/material';
-import { useThemeMode } from '@/theme';
-import { useSidebar } from '@/sections/Sidebar/hooks';
-import { useHotKeysDialog } from './hooks';
+import { Button, Dialog, DialogContent, DialogTitle, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
+
+import { useSidebar } from '@/sections/Sidebar/hooks';
+import { useThemeMode } from '@/theme';
+
+import { useHotKeysDialog } from './hooks';
 
 function HotKeys() {
   const { toggle: toggleTheme } = useThemeMode();

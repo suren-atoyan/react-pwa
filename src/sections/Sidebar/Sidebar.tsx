@@ -4,12 +4,14 @@ import DefaultIcon from '@mui/icons-material/Deblur';
 import {
   List,
   ListItem,
+  ListItemButton,
   ListItemIcon,
   ListItemText,
   SwipeableDrawer,
-  ListItemButton,
 } from '@mui/material';
+
 import routes from '@/routes';
+
 import { useSidebar } from './hooks';
 
 function Sidebar() {

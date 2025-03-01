@@ -1,5 +1,7 @@
-import { Button, Typography } from '@mui/material';
 import { Link } from 'react-router';
+
+import { Button, Typography } from '@mui/material';
+
 import { FullSizeCentered } from '@/components/styled';
 
 function Page4() {

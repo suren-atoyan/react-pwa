@@ -1,5 +1,4 @@
 import { Stack } from '@mui/material';
-
 import { styled } from '@mui/material/styles';
 
 const Centered = styled(Stack)({

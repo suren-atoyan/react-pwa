@@ -1,6 +1,8 @@
-import { useAtom } from 'jotai';
-import { isSidebarOpenState } from './atoms';
 import { useCallback } from 'react';
+
+import { useAtom } from 'jotai';
+
+import { isSidebarOpenState } from './atoms';
 
 function useSidebar() {
   const [isOpen, setIsOpen] = useAtom(isSidebarOpenState);
