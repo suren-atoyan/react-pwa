@@ -1,7 +1,8 @@
 import { ComponentType, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { HelmetProvider } from 'react-helmet-async';
-import { RecoilRoot } from 'recoil';
+import { Provider } from 'jotai';
+// from MUI's toolpad we use only Notifications
+import { NotificationsProvider } from '@toolpad/core/useNotifications';
 
 import ThemeProvider from '@/theme/Provider';
 
@@ -11,13 +12,13 @@ const root = createRoot(container);
 function render(App: ComponentType) {
   root.render(
     <StrictMode>
-      <RecoilRoot>
-        <HelmetProvider>
-          <ThemeProvider>
+      <Provider>
+        <ThemeProvider>
+          <NotificationsProvider>
             <App />
-          </ThemeProvider>
-        </HelmetProvider>
-      </RecoilRoot>
+          </NotificationsProvider>
+        </ThemeProvider>
+      </Provider>
     </StrictMode>,
   );
 }

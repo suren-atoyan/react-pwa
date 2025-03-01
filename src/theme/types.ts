@@ -1,4 +1,6 @@
-enum Themes {
+import { JSX } from 'react';
+
+enum ThemeMode {
   DARK = 'dark',
   LIGHT = 'light',
 }
@@ -8,4 +10,4 @@ type CustomThemeProviderProps = {
 };
 
 export type { CustomThemeProviderProps };
-export { Themes };
+export { ThemeMode };

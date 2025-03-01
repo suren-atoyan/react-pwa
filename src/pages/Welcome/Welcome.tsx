@@ -1,5 +1,4 @@
-import Meta from '@/components/Meta';
-import { FullSizeCenteredFlexBox } from '@/components/styled';
+import { FullSizeCentered } from '@/components/styled';
 import useOrientation from '@/hooks/useOrientation';
 
 import muiLogo from './logos/mui.svg';
@@ -19,8 +18,8 @@ function Welcome() {
 
   return (
     <>
-      <Meta title="Welcome" />
-      <FullSizeCenteredFlexBox flexDirection={isPortrait ? 'column' : 'row'}>
+      <meta name="title" content="Welcome" />
+      <FullSizeCentered flexDirection={isPortrait ? 'column' : 'row'}>
         <Image alt="react-router" src={rrLogo} />
         <Image alt="vite" src={viteLogo} />
         <Image alt="typescript" src={tsLogo} />
@@ -28,7 +27,7 @@ function Welcome() {
         <Image alt="mui" src={muiLogo} />
         <Image alt="recoil" src={recoilLogo} />
         <Image alt="pwa" src={pwaLogo} />
-      </FullSizeCenteredFlexBox>
+      </FullSizeCentered>
     </>
   );
 }
