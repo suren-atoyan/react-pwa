@@ -1,5 +1,17 @@
 ### Releases
 
+## v3.0.0
+
+###### _Mar 2, 2025_
+
+- React: update to v19
+- Vite: update to v6
+- MUI: update to v6
+- React Router: update to v7
+- Jotai: replace Recoil with Jotai
+- Notifications: add alert system with MUI Toolpad integration
+- TypeScript: update to the latest version
+
 ## v2.3.0
 
 ###### _Dec 23, 2023_

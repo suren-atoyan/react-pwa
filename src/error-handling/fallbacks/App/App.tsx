@@ -5,17 +5,17 @@ import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 
-import { FullSizeCenteredFlexBox } from '@/components/styled';
-import { email, messages } from '@/config';
+import { FullSizeCentered } from '@/components/styled';
+import { email } from '@/config';
 import resetApp from '@/utils/reset-app';
 
 function AppErrorBoundaryFallback() {
   return (
     <Box height={400}>
-      <FullSizeCenteredFlexBox>
+      <FullSizeCentered>
         <Paper sx={{ p: 5 }}>
           <Typography variant="h5" component="h3">
-            {messages.app.crash.title}
+            Sorry, I guess, something went wrong. You can:
           </Typography>
           <Button
             startIcon={<EmailIcon />}
@@ -25,14 +25,14 @@ function AppErrorBoundaryFallback() {
             href={`mailto: ${email}`}
             sx={{ my: 3 }}
           >
-            {messages.app.crash.options.email}
+            contact with author by this email - {email}
           </Button>
           <Typography component="h6">or</Typography>
           <Button startIcon={<RestartIcon />} sx={{ mt: 3 }} variant="outlined" onClick={resetApp}>
-            {messages.app.crash.options.reset}
+            Press here to reset the application
           </Button>
         </Paper>
-      </FullSizeCenteredFlexBox>
+      </FullSizeCentered>
     </Box>
   );
 }

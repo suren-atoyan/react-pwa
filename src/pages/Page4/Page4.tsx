@@ -1,16 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { Button, Typography } from '@mui/material';
 
-import Meta from '@/components/Meta';
-import { FullSizeCenteredFlexBox } from '@/components/styled';
+import { FullSizeCentered } from '@/components/styled';
 
 function Page4() {
   return (
     <>
-      <Meta title="page 4" />
-      <FullSizeCenteredFlexBox flexDirection="column">
+      <meta name="title" content="Page 4" />
+      <FullSizeCentered>
         <Typography variant="h3">Page 4</Typography>
         <Button
           to={`/${Math.random().toString()}`}
@@ -22,7 +20,7 @@ function Page4() {
         >
           Whant to check 404?
         </Button>
-      </FullSizeCenteredFlexBox>
+      </FullSizeCentered>
     </>
   );
 }

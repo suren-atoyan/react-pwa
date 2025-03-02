@@ -1,15 +1,14 @@
-import Typography from '@mui/material/Typography';
+import { Typography } from '@mui/material';
 
-import Meta from '@/components/Meta';
-import { FullSizeCenteredFlexBox } from '@/components/styled';
+import { FullSizeCentered } from '@/components/styled';
 
 function Page3() {
   return (
     <>
-      <Meta title="page 3" />
-      <FullSizeCenteredFlexBox>
+      <meta name="title" content="Page 3" />
+      <FullSizeCentered>
         <Typography variant="h3">Page 3</Typography>
-      </FullSizeCenteredFlexBox>
+      </FullSizeCentered>
     </>
   );
 }

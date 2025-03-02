@@ -1,5 +1,6 @@
-import { arrayInsertIf, objectInsertIf } from './';
 import { expect, test } from 'vitest';
+
+import { arrayInsertIf, objectInsertIf } from './';
 
 test('arrayInsertIf: returns empty array if condition is false', () => {
   expect(arrayInsertIf(false, [1, 2, 3])).toEqual([]);
