@@ -16,6 +16,3 @@ Promise.all([import('@/root'), import('@/App')]).then(([{ default: render }, { d
 
 // welcome message for users in the console
 welcome();
-
-// ts(1208)
-export {};
